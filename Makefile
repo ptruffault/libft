@@ -3,6 +3,8 @@ NAME = libft.a
 CLANG = gcc
 
 SRC = ./ft_memset.c \
+	./ft_strncut.c \
+	  ./ft_caps_lock.c \
 	  ./ft_bzero.c \
 	  ./ft_memcpy.c \
 	  ./ft_memmove.c \

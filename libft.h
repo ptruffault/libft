@@ -29,6 +29,7 @@ struct	s_list
 	t_list	*next;
 };
 
+char	*ft_caps_lock(char *str);
 int	get_next_line(const int fd, char **line);
 t_list	*ft_lstnew(const void *content, size_t content_size);
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
