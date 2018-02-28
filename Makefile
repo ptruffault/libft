@@ -3,7 +3,7 @@ NAME = libft.a
 CLANG = gcc
 
 SRC = ./ft_memset.c \
-	./ft_strncut.c \
+	  ./ft_strncut.c \
 	  ./ft_caps_lock.c \
 	  ./ft_bzero.c \
 	  ./ft_memcpy.c \
@@ -63,6 +63,11 @@ SRC = ./ft_memset.c \
 	  ./ft_lstiter.c \
 	  ./ft_lstmap.c \
 	  ./ft_sqrt.c \
+	  ./ft_new_path.c \
+	  ./ft_get_tfile.c \
+	  ./ft_get_file_information.c 	\
+	  ./ft_free_tfile.c \
+	  ./ft_new_tfile.c 
 
 OBJ = $(SRC:.c=.o)
 
@@ -73,14 +78,14 @@ FLAG = -Wall -Werror -Wextra
 all: $(NAME)
 
 $(NAME):
-	$(CLANG) -c $(FLAG) $(SRC) -I .
+	@$(CLANG) -c $(FLAG) $(SRC) -I .
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
 clean:
-	$(RM) $(OBJ)
+	@$(RM) $(OBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all

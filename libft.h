@@ -15,12 +15,41 @@
 
 # include <string.h>
 # include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
+# include "libft.h"			
+# include <stdlib.h> 			
+# include <stdio.h>  		
+# include <dirent.h>			
+# include <sys/stat.h>			
+# include <errno.h>				
+# include <pwd.h>				
+# include <grp.h>				
+# include <time.h>				
+# include <sys/types.h>			
+# include <sys/xattr.h>	
+
 
 # define BUFF_SIZE 256
 
 typedef	struct s_list	t_list;
+
+// given by opendir -> traitement comme dans ft_ls
+typedef struct s_file t_file;
+struct s_file
+{
+	char		*name;
+	char		type;
+	char		*mode;
+	int 		nb_of_l; 		
+	char		*owner;
+	char		*group;
+	int 		len;
+	char		*date;
+	time_t		time;
+	char		*path;
+	int 		block;
+	t_file 		*sdir;
+	t_file 		*next;
+};
 
 struct	s_list
 {
@@ -29,8 +58,19 @@ struct	s_list
 	t_list	*next;
 };
 
+void	ft_get_file_information(t_file *file, struct dirent *t_dir, char *path);
+t_file	*ft_get_tfile(char *path);
+t_file	*ft_new_tfile(void);
+void	ft_del_tfile(t_file *file);
+void	ft_free_tfile(t_file *file);
+
+char	*ft_new_path(char *s1, char *s2);
+
+int		get_next_line(const int fd, char **line);
+
+
 char	*ft_caps_lock(char *str);
-int	get_next_line(const int fd, char **line);
+
 t_list	*ft_lstnew(const void *content, size_t content_size);
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
