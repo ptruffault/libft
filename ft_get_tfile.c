@@ -1,6 +1,6 @@
 #include "libft.h"
 
-static void read_all_dir(t_file *file, char *path, DIR *dir)
+static void read_all_dir(t_file *file, char *path, DIR *dir, int recursive)
 {
 	struct dirent *t_dir;
 
@@ -9,30 +9,31 @@ static void read_all_dir(t_file *file, char *path, DIR *dir)
 		file->next = ft_new_tfile();
 		file = file->next;
 		ft_get_file_information(file, t_dir, path);
-		printf("%s\n", file->path);
-		if (file->type == 'd' && *file->name != '.')
+		if (recursive != 0 && file->type == 'd' && 
+			ft_strcmp(file->name, ".") != 0  && ft_strcmp(file->name, "..") != 0)
 		{
-			printf("enter in %s\n",file->path );
-			file->sdir = ft_get_tfile(file->path);
+			file->sdir = ft_get_tfile(file->path, recursive);
+			ft_sort_tfile(file->sdir, NULL);
 		}
 	}
 }
 
-void	ft_opendir(char *path, t_file *file)
+static void	ft_opendir(char *path, t_file *file, int recursive)
 {
 	DIR *dir;
 
 	if (!(dir = opendir(path)))
-		perror(path);
-	read_all_dir(file, path, dir);
-	if (closedir(dir) == -1)
 	{
-		perror("ft_get_file : (closedir)");
-		exit(-1);
+		ft_putendl_fd("get_file -> opendir :", 2);
+		perror(path);
 	}
+	else if ((path)) 
+		read_all_dir(file, path, dir, recursive);
+	if (closedir(dir) == -1)
+		perror(path);
 }
 
-t_file	*ft_get_tfile(char *path)
+t_file	*ft_get_tfile(char *path, int recursive)
 {
 	t_file *file;
 	t_file *save;
@@ -40,12 +41,13 @@ t_file	*ft_get_tfile(char *path)
 	if (!(path))
 	{
 		ft_putendl_fd("ft_get_file : path = NULL", 2);
-		exit(-1);
+		return (NULL);
 	}
 	file = ft_new_tfile();
 	save = file;
-	ft_opendir(path, file);
+	ft_opendir(path, file, recursive);
+	file = save->next;
 	free(save);
-	file = file->next;
+	ft_sort_tfile(file, NULL);
 	return (file);
 }

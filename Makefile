@@ -43,6 +43,7 @@ SRC = ./ft_memset.c \
 	  ./ft_putnbr.c \
 	  ./ft_putstr_fd.c \
 	  ./ft_putstr.c \
+	  ./ft_putstr_tab.c \
 	  ./ft_strclr.c \
 	  ./ft_strdel.c \
 	  ./ft_strequ.c \
@@ -63,11 +64,18 @@ SRC = ./ft_memset.c \
 	  ./ft_lstiter.c \
 	  ./ft_lstmap.c \
 	  ./ft_sqrt.c \
+	  ./ft_realloc.c \
+	  ./ft_get_input.c \
 	  ./ft_new_path.c \
 	  ./ft_get_tfile.c \
 	  ./ft_get_file_information.c 	\
 	  ./ft_free_tfile.c \
-	  ./ft_new_tfile.c 
+	  ./ft_new_tfile.c \
+	  ./ft_dir_compltion.c \
+	  ./ft_search_tfile.c \
+	  ./ft_get_prev_path.c \
+	  ./ft_putstr_color_fd.c \
+	  ./ft_sort_tfile.c
 
 OBJ = $(SRC:.c=.o)
 

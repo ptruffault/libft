@@ -30,6 +30,17 @@
 
 # define BUFF_SIZE 256
 
+#define BLEUCLAIR 	"\033[01;34m"
+#define ROUGE 		"\033[00;31m"
+#define BLEU 		"\033[00;34m"
+#define SOULIGNE 	"\033[04m"
+#define NORMAL 		"\033[00m"
+#define VERT  		"\033[1;32m" 
+#define	CYAN 		"\033[1;36m"
+#define MAGENTA 	"\033[1;35m"
+#define JAUNE		"\033[1;39m"
+
+
 typedef	struct s_list	t_list;
 
 // given by opendir -> traitement comme dans ft_ls
@@ -42,7 +53,7 @@ struct s_file
 	int 		nb_of_l; 		
 	char		*owner;
 	char		*group;
-	int 		len;
+	int 		size;
 	char		*date;
 	time_t		time;
 	char		*path;
@@ -59,17 +70,23 @@ struct	s_list
 };
 
 void	ft_get_file_information(t_file *file, struct dirent *t_dir, char *path);
-t_file	*ft_get_tfile(char *path);
+t_file	*ft_get_tfile(char *path, int recursive);
+t_file	*ft_search_tfile(char *path, int recursif);
 t_file	*ft_new_tfile(void);
 void	ft_del_tfile(t_file *file);
 void	ft_free_tfile(t_file *file);
+t_file *ft_dir_compltion(char *str, char *path);
+void	ft_sort_tfile(t_file *file, int (*f)(t_file *file, t_file *tmp));
 
 char	*ft_new_path(char *s1, char *s2);
+char	*ft_get_prev_path(char *path);
 
-int		get_next_line(const int fd, char **line);
+int		get_next_line(const int fd, char **line);	
+char 	*ft_get_input(void);
 
 
 char	*ft_caps_lock(char *str);
+void	*ft_realloc(void *ptr, size_t prev_size, size_t new_size);
 
 t_list	*ft_lstnew(const void *content, size_t content_size);
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
@@ -127,6 +144,9 @@ int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
 void	ft_putchar(char c);
 void	ft_putstr(char const *s);
+void	ft_putstr_color(char *str , char *color);
+void	ft_putstr_color_fd(char *str, char *color , int fd);
+void	ft_putstr_tab(char **tab);
 void	ft_putendl(char const *s);
 void	ft_putnbr(int n);
 void	ft_putchar_fd(char c, int fd);

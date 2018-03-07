@@ -7,42 +7,58 @@ static int 	test(char *name, char *str)
 
 	j = 0;
 	i = 0;
+	if (ft_strcmp(str, "*") == 0)
+		return (1);
 	while (str[i] != '\0')
 	{
 		if (str[i] == '*')
 		{
 			while (name[j] != str[i + 1] && name[j] != '\0')
 				j++;
-			if (name[j] == '\0' && str[i + 1] != '\0')
+			i++;
+			if (name[j] == '\0' && str[i] != '\0')
 				return (0);
+			else if (name[j] == '\0')
+				return (1);
 		}
-		if (str[i] != name[j])
+		if (str[i++] != name[j++])
 			return (0);
-
 	}
+	return (1);
 }
 
-char **ft_dir_compltion(char *str, char *path)
+static void ft_sort(t_file *file, t_file *prev, char *str)
 {
-	t_file *file;
-	t_file *prev;
-
-	prev = ft_new_tfile();
-	file = get_tfile(path);
 	while (file)
 	{
 		if (test(file->name, str) == 0)
 		{
-			printf("test : FALSE : delete :%s\n", file->name);
 			prev->next = file->next;
-			del_tfile(file);
+			ft_del_tfile(file);
 			file = prev->next;
 		}
 		else
 		{
-			printf("test ok :%s\n", file->name);
-			prev = file
+			prev = file;
 			file = file->next;
 		}
 	}
+}
+
+t_file *ft_dir_compltion(char *str, char *path)
+{
+	t_file *head;
+	t_file *file;
+	t_file *prev;
+
+	file = ft_new_tfile();
+	prev = file;
+	file->next = ft_get_tfile(path, 0);
+	file = file->next;
+	head = prev;
+	ft_sort(file, prev, str);
+	prev = head;
+	head = head->next;
+	free(prev);
+	return (head);
 }

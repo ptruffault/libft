@@ -4,7 +4,7 @@ static char		*find_mode(mode_t st_mode)
 {
 	char *str;
 
-	if (!(str = ft_strnew(10)))
+	if (!(str = ft_strnew(9)))
 		return (NULL);
 	str[0] = (st_mode & S_IRUSR ? 'r' : '-');
 	str[1] = (st_mode & S_IWUSR ? 'w' : '-');
@@ -76,5 +76,5 @@ void	ft_get_file_information(t_file *file, struct dirent *t_dir, char *path)
  	file->time = buf.st_mtime;
  	file->block = (int)buf.st_blocks;
  	file->nb_of_l = buf.st_nlink;
- 	file->len = buf.st_size;
+ 	file->size = buf.st_size;
  }
