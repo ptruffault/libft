@@ -1,5 +1,48 @@
 #include "libft.h"
 
+static char	*my_strchr(const char *s, int c)
+{
+	int i;
+
+	i = ft_strlen(s) - 1;
+	while (i >= 0)
+	{
+		if (s[i] == (char)c)
+			return ((char*)(s + i));
+		i--;
+	}
+	return (NULL);
+}
+
+static char	*split_name(char *path)
+{
+	char *ptr;
+	char *ret;
+
+
+	if (path[ft_strlen(path) - 1] == '/')
+		path[ft_strlen(path) - 1] = '\0';
+
+	if ((ptr = my_strchr(path, '/')))
+	{
+		*ptr++ = '\0';
+		ret = ft_strdup(ptr);
+		return (ret);
+	}
+	else
+	{
+		ret = ft_strdup(path);
+		if ((path))
+			free(path);
+		if (!(path = ft_strdup(".\0")))
+		{
+			ft_putendl_fd("ft_search_file : allocation failled", 2);
+			return (NULL);
+		}
+		return (ret);
+	}
+}
+
 static int 	test(char *name, char *str)
 {
 	int i;
@@ -45,18 +88,20 @@ static void ft_sort(t_file *file, t_file *prev, char *str)
 	}
 }
 
-t_file *ft_dir_compltion(char *str, char *path)
+t_file *ft_dir_compltion(char *str)
 {
 	t_file *head;
 	t_file *file;
 	t_file *prev;
+	char *name;
 
+	name = split_name(str);
 	file = ft_new_tfile();
 	prev = file;
-	file->next = ft_get_tfile(path, 0);
+	file->next = ft_get_tfile(str, 0);
 	file = file->next;
 	head = prev;
-	ft_sort(file, prev, str);
+	ft_sort(file, prev, name);
 	prev = head;
 	head = head->next;
 	free(prev);

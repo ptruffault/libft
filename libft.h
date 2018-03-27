@@ -30,6 +30,8 @@
 
 # define BUFF_SIZE 256
 
+# define IS_SPACE(x) (x == ' ' || x == '\t' || x == '\r' || x == '\f')
+
 #define BLEUCLAIR 	"\033[01;34m"
 #define ROUGE 		"\033[00;31m"
 #define BLEU 		"\033[00;34m"
@@ -43,7 +45,6 @@
 
 typedef	struct s_list	t_list;
 
-// given by opendir -> traitement comme dans ft_ls
 typedef struct s_file t_file;
 struct s_file
 {
@@ -54,10 +55,12 @@ struct s_file
 	char		*owner;
 	char		*group;
 	int 		size;
-	char		*date;
-	time_t		time;
+	time_t		modif_time;
+	time_t		access_time;
 	char		*path;
 	int 		block;
+	char		*link;
+	int   		total;
 	t_file 		*sdir;
 	t_file 		*next;
 };
@@ -72,21 +75,23 @@ struct	s_list
 void	ft_get_file_information(t_file *file, struct dirent *t_dir, char *path);
 t_file	*ft_get_tfile(char *path, int recursive);
 t_file	*ft_search_tfile(char *path, int recursif);
+void	ft_put_tfile(t_file *file);
 t_file	*ft_new_tfile(void);
 void	ft_del_tfile(t_file *file);
 void	ft_free_tfile(t_file *file);
-t_file *ft_dir_compltion(char *str, char *path);
-void	ft_sort_tfile(t_file *file, int (*f)(t_file *file, t_file *tmp));
-
+t_file *ft_dir_compltion(char *str);
+t_file	*ft_sort_tfile(t_file *file, int (*f)(t_file *file, t_file *tmp));
 char	*ft_new_path(char *s1, char *s2);
 char	*ft_get_prev_path(char *path);
-
 int		get_next_line(const int fd, char **line);	
 char 	*ft_get_input(void);
-
-
 char	*ft_caps_lock(char *str);
+int		ft_strcmp_castless(char *s1, char *s2);
+
+void	ft_freestrarr(char **arr);
 void	*ft_realloc(void *ptr, size_t prev_size, size_t new_size);
+int		ft_str_startwith(char *s1, char *s2);
+char	**ft_strsplit_whitespace(char *s);
 
 t_list	*ft_lstnew(const void *content, size_t content_size);
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
@@ -118,6 +123,8 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi(const char *str);
+int		ft_ismaj(char c);
+int		ft_ismin(char c);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);

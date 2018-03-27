@@ -26,21 +26,23 @@ static char	*split_name(char *path)
 	if ((ptr = my_strchr(path, '/')))
 	{
 		*ptr++ = '\0';
-		ret = ft_strdup(ptr);
-		return (ret);
+		if (!(ret = ft_strdup(ptr)))
+		{
+			ft_putendl_fd("ft_ls : allocation failed", 2);
+			exit (-1);
+		}
+	}
+	else if ((ret = ft_strdup(path)))
+	{
+		path[0] = '.';
+		path[1] = '\0';
 	}
 	else
 	{
-		ret = ft_strdup(path);
-		if ((path))
-			free(path);
-		if (!(path = ft_strdup(".\0")))
-		{
-			ft_putendl_fd("ft_search_file : allocation failled", 2);
-			return (NULL);
-		}
-		return (ret);
+		ft_putendl_fd("ft_ls : allocation failed", 2);
+		exit (-1);
 	}
+	return (ret);
 }
 
 static t_file *ft_find(t_file *file, char *name)
@@ -87,5 +89,6 @@ t_file	*ft_search_tfile(char *path, int recursif)
 	}
 	if (ret->type == 'd')
 		ret->sdir = ft_get_tfile(ret->path, recursif);
+	free(name);
 	return (ret);
 }
