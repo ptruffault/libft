@@ -3,6 +3,7 @@ NAME		=	libft.a
 GIT 		= https://github.com/ptruffault/libft.git
 
 SRC 		= 	SRCS/ALLOC/*.c \
+				SRCS/FREE/*.c \
 				SRCS/CONVERTION/*.c \
 				SRCS/GET/*.c \
 				SRCS/INT/*.c \
