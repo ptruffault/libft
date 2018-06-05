@@ -25,22 +25,25 @@
 # include <grp.h>				
 # include <time.h>				
 # include <sys/types.h>			
-# include <sys/xattr.h>	
+# include <sys/xattr.h>
+# include <stdarg.h>
+# include <stdint.h>
+# include <wchar.h>
 
 
 # define BUFF_SIZE 256
 
 # define IS_SPACE(x) (x == ' ' || x == '\t' || x == '\r' || x == '\f')
 
-#define BLEUCLAIR 	"\033[01;34m"
-#define ROUGE 		"\033[00;31m"
-#define BLEU 		"\033[00;34m"
-#define SOULIGNE 	"\033[04m"
-#define NORMAL 		"\033[00m"
-#define VERT  		"\033[1;32m" 
-#define	CYAN 		"\033[1;36m"
-#define MAGENTA 	"\033[1;35m"
-#define JAUNE		"\033[1;39m"
+# define BLEUCLAIR 	"\033[01;34m"
+# define ROUGE 		"\033[00;31m"
+# define BLEU 		"\033[00;34m"
+# define SOULIGNE 	"\033[04m"
+# define NORMAL 		"\033[00m"
+# define VERT  		"\033[1;32m" 
+# define	CYAN 		"\033[1;36m"
+# define MAGENTA 	"\033[1;35m"
+# define JAUNE		"\033[1;39m"
 
 
 typedef	struct s_list	t_list;
@@ -71,6 +74,16 @@ struct	s_list
 	size_t	content_size;
 	t_list	*next;
 };
+
+char 	*ft_arr_to_str(char **arr);
+
+char 	*ft_char_to_str(char c);
+char 	*ft_itoa_base_intmax(intmax_t value, int base);
+char 	*ft_itoa_base_unintmax(uintmax_t value, int base);
+char 	*ft_strjoin_fr(char *s1, char *s2);
+char 	*ft_stradd_char(char *str, char c);
+char 	*ft_strnew_nchar(char c, int n);
+char 	*ft_strjoin_fr(char *s1, char *s2);
 
 void	ft_get_file_information(t_file *file, struct dirent *t_dir, char *path);
 t_file	*ft_get_tfile(char *path, int recursive);
