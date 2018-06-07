@@ -12,35 +12,24 @@
 
 #include "../includes/libft.h"
 
-void	ft_del_tfile(t_file *file)
+char 	*ft_arr_to_str(char **arr)
 {
-	if (file->type == 'l' && (file->link))
-		free(file->link);
-	if ((file->name))
-		free(file->name);
-	if ((file->owner))
-		free(file->owner);
-	if ((file->group))
-		free(file->group);
-	if ((file->mode))
-		free(file->mode);
-	if ((file->path))
-		free(file->path);
-	file->next = NULL;
-	file->sdir = NULL;
-	free(file);
-}
+	char *head;
+	int i;
+	int j;
+	int size;
 
-void			ft_free_tfile(t_file *file)
-{
-	t_file *tmp;
-
-	while (file)
+	i = 0;
+	size = 0;
+	head = ft_strnew(0);
+	while (arr[i])
 	{
-		tmp = file->next;
-		if (file->type == 'd' && (file->sdir))
-			ft_free_tfile(file->sdir);
-		ft_del_tfile(file);
-		file = tmp;
+		if (!(head = ft_realloc(head, size, size + ft_strlen(arr[i]))))
+			return (NULL);
+		j = 0;
+		while (arr[i][j] != '\0')
+			head[size++] = arr[i][j++];
+		i++;
 	}
+	return (head);
 }
