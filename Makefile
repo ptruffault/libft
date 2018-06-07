@@ -59,8 +59,7 @@ fclean: clean
 
 
 save: clean fclean
-	@git add *
-	@git add $(SRCS)
+	@git add * $(SRCS)
 	@git commit -m "[make save]"
 	@git push
 	@echo "\t$(DONE)"
