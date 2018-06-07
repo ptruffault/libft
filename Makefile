@@ -59,6 +59,10 @@ fclean: clean
 	@echo "$(OP_COLOR)Cleaning (libft/libft.a) $(DONE)"
 	@rm -rf $(NAME)
 
+chmod:
+	@chmod 777 *
+	@chmod 777 srcs/*
+	@chmod 777 includes/*
 
 save: clean fclean
 	@git add * $(SRCS)
