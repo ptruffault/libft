@@ -37,13 +37,15 @@ OP_COLOR	= \033[1;34m
 DONE		= $(NO_COLOR)[\033[1;32mOK$(NO_COLOR)]
 
 
-all: $(NAME)
-
+all:  bin $(NAME)
 
 $(NAME): $(OBJ) 
 	@ar rc $@ $^
 	@ranlib $@
 	@echo "$(OP_COLOR)\tbuilding $(NAME)\t $(DONE)"
+
+bin:
+	@mkdir $@
 
 bin/%.o: srcs/%.c 
 	@gcc $(FLAG) -I includes/ -c $< -o $@
