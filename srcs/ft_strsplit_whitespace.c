@@ -26,9 +26,10 @@ char	*get_next_word(char *str)
 	int j;
 
 	j = 0;
+	word = NULL;
 	while (!(IS_SPACE(str[j])) && str[j] != '\0')
 		j++;
-	if (j != '\0')
+	if (str[j] != '\0')
 	{
 		if (!(word = ft_strnew(j)))
 		{
