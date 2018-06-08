@@ -72,6 +72,16 @@ struct	s_list
 	t_list	*next;
 };
 
+
+
+char 	*ft_arr_to_str(char **arr);
+char 	*ft_char_to_str(char c);
+char 	*ft_itoa_base_intmax(intmax_t value, int base);
+char 	*ft_itoa_base_unintmax(uintmax_t value, int base);
+char 	*ft_strjoin_fr(char *s1, char *s2);
+char 	*ft_stradd_char(char *str, char c);
+char 	*ft_strnew_nchar(char c, int n);
+char 	*ft_strjoin_fr(char *s1, char *s2);
 void	ft_get_file_information(t_file *file, struct dirent *t_dir, char *path);
 t_file	*ft_get_tfile(char *path, int recursive);
 t_file	*ft_search_tfile(char *path, int recursif);
