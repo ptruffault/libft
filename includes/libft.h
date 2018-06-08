@@ -85,7 +85,6 @@ char	*ft_new_path(char *s1, char *s2);
 char	*ft_get_prev_path(char *path);
 int		get_next_line(const int fd, char **line);	
 char 	*ft_get_input(void);
-char	*ft_caps_lock(char *str);
 int		ft_strcmp_castless(char *s1, char *s2);
 
 void	ft_freestrarr(char **arr);
