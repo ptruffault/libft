@@ -82,7 +82,7 @@ char 	*ft_strjoin_fr(char *s1, char *s2);
 char 	*ft_stradd_char(char *str, char c);
 char 	*ft_strnew_nchar(char c, int n);
 char 	*ft_strjoin_fr(char *s1, char *s2);
-void	ft_get_file_information(t_file *file, struct dirent *t_dir, char *path);
+void	ft_get_file_inf(t_file *f, struct dirent *t_dir, char *path);
 t_file	*ft_get_tfile(char *path, int recursive);
 t_file	*ft_search_tfile(char *path, int recursif);
 void	ft_put_tfile(t_file *file);
