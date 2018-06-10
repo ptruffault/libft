@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/08 17:16:51 by ptruffau          #+#    #+#             */
-/*   Updated: 2018/06/08 17:24:11 by ptruffau         ###   ########.fr       */
+/*   Created: 2018/06/10 17:57:26 by ptruffau          #+#    #+#             */
+/*   Updated: 2018/06/10 17:57:28 by ptruffau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-static void read_all_dir(t_file *file, char *path, DIR *dir, int recursive)
+static void	read_all_dir(t_file *file, char *path, DIR *dir, int recursive)
 {
 	struct dirent *t_dir;
 
@@ -21,8 +21,8 @@ static void read_all_dir(t_file *file, char *path, DIR *dir, int recursive)
 		file->next = ft_new_tfile();
 		file = file->next;
 		ft_get_file_inf(file, t_dir, path);
-		if (recursive != 0 && file->type == 'd' && 
-			ft_strcmp(file->name, ".") != 0  && ft_strcmp(file->name, "..") != 0)
+		if (recursive != 0 && file->type == 'd' &&
+			!ft_strequ(file->name, ".") && !ft_strequ(file->name, ".."))
 			file->sdir = ft_get_tfile(file->path, recursive);
 	}
 }
@@ -36,13 +36,13 @@ static void	ft_opendir(char *path, t_file *file, int recursive)
 		ft_putendl_fd("get_file->opendir :", 2);
 		perror(path);
 	}
-	else if ((path)) 
+	else if ((path))
 		read_all_dir(file, path, dir, recursive);
 	if (closedir(dir) == -1)
 		perror(path);
 }
 
-t_file	*ft_get_tfile(char *path, int recursive)
+t_file		*ft_get_tfile(char *path, int recursive)
 {
 	t_file *file;
 	t_file *tmp;

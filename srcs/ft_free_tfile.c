@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_free_tfile.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/16 10:57:04 by ptruffau          #+#    #+#             */
-/*   Updated: 2017/11/16 11:11:47 by ptruffau         ###   ########.fr       */
+/*   Created: 2018/06/10 18:06:39 by ptruffau          #+#    #+#             */
+/*   Updated: 2018/06/10 18:06:40 by ptruffau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_del_tfile(t_file *file)
 	free(file);
 }
 
-void			ft_free_tfile(t_file *file)
+void	ft_free_tfile(t_file *file)
 {
 	t_file *tmp;
 

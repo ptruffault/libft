@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_arr_to_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/16 10:57:04 by ptruffau          #+#    #+#             */
-/*   Updated: 2017/11/16 11:11:47 by ptruffau         ###   ########.fr       */
+/*   Created: 2018/06/10 18:05:42 by ptruffau          #+#    #+#             */
+/*   Updated: 2018/06/10 18:05:44 by ptruffau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char 	*ft_arr_to_str(char **arr)
+char	*ft_arr_to_str(char **arr)
 {
-	char *head;
-	int i;
-	int j;
-	int size;
+	char	*head;
+	int		i;
+	int		j;
+	int		size;
 
 	i = 0;
 	size = 0;
