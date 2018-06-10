@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin_fr.c                                    :+:      :+:    :+:   */
+/*   ft_stradd_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/10 17:23:18 by ptruffau          #+#    #+#             */
-/*   Updated: 2018/06/10 17:25:37 by ptruffau         ###   ########.fr       */
+/*   Created: 2018/06/10 17:28:54 by ptruffau          #+#    #+#             */
+/*   Updated: 2018/06/10 17:33:11 by ptruffau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char	*ft_strjoin_fr(char *s1, char *s2)
+char	*ft_stradd_char(char *str, char c)
 {
-	char *ret;
+	char	*new;
+	int		len;
 
-	if (!(ret = ft_strjoin(s1, s2)))
+	if (!str)
+		return (ft_char_to_str(c));
+	len = ft_strlen(str);
+	if (!(new = ft_strnew(n + 1)))
 		return (NULL);
-	ft_strdel(&s1);
-	ft_strdel(&s2);
-	return (ret);
+	new = ft_strcpy(new, str);
+	new[len] = c;
+	new[len + 1] = '\0';
+	ft_strdel(&str);
+	return (new);
 }
