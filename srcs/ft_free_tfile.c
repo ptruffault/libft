@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_tfile.c                                    :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/10 18:06:39 by ptruffau          #+#    #+#             */
-/*   Updated: 2018/06/10 18:06:40 by ptruffau         ###   ########.fr       */
+/*   Created: 2017/11/16 10:57:04 by ptruffau          #+#    #+#             */
+/*   Updated: 2017/11/16 11:11:47 by ptruffau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,24 @@
 void	ft_del_tfile(t_file *file)
 {
 	if (file->type == 'l' && (file->link))
-		free(file->link);
+		ft_strdel(&file->link);
 	if ((file->name))
-		free(file->name);
+		ft_strdel(&file->name);
 	if ((file->owner))
-		free(file->owner);
+		ft_strdel(&file->owner);
 	if ((file->group))
-		free(file->group);
+		ft_strdel(&file->group);
 	if ((file->mode))
-		free(file->mode);
+		ft_strdel(&file->mode);
 	if ((file->path))
-		free(file->path);
+		ft_strdel(&file->path);
 	file->next = NULL;
 	file->sdir = NULL;
 	free(file);
+	file = NULL;
 }
 
-void	ft_free_tfile(t_file *file)
+void			ft_free_tfile(t_file *file)
 {
 	t_file *tmp;
 
