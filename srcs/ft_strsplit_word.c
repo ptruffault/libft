@@ -22,8 +22,7 @@ static int word_len(char *str)
 	i = 0;
 	if (ret == -1)
 	{
-		ft_putendl_fd("minishell : invalid quote : missing end symbol  :", 2);
-		ft_putendl_fd(str, 2);
+		error(" invalid quote : missing end symbol", str);
 		return (-1);
 	}
 	if (ret == 0)
