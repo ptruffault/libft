@@ -33,8 +33,8 @@ OBJ			= $(addprefix $(OBJ_FOLDER), $(FILES:.c=.o))
 
 COLOR		= \033[01;34m
 NO_COLOR	= \033[00m
-OP_COLOR	= \033[1;34m
-DONE		= $(NO_COLOR)[\033[1;32mOK$(NO_COLOR)]
+OP_COLOR	= \033[1;31m
+DONE 		= $(NO_COLOR)[\033[1;32mOK$(NO_COLOR)]
 
 
 all:  bin $(NAME)
@@ -42,7 +42,7 @@ all:  bin $(NAME)
 $(NAME): $(OBJ) 
 	@ar rc $@ $^
 	@ranlib $@
-	@echo "$(OP_COLOR)\tbuilding $(NAME)\t $(DONE)"
+	@echo "$(DONE)$(OP_COLOR)$(NAME)$(NO_COLOR)"
 
 bin:
 	@mkdir $@
@@ -50,7 +50,7 @@ bin:
 bin/%.o: srcs/%.c 
 	@cat $< > $<tmp && rm -rf $< && mv $<tmp $< 
 	@gcc $(FLAG) -I includes/ -c $< -o $@
-	@echo "$(DONE)~$(NAME):\t$<"
+	@echo "$(DONE)~\033[04m\033[1;33m$<$(NO_COLOR)"
 
 clean:
 	@rm -rf $(OBJ)
