@@ -15,8 +15,8 @@
 void	ft_putchar_color_fd(char c , char *color, int fd)
 {
 	ft_putstr_fd(color, fd);
-	ft_putchar_fd(str, fd);
-	ft_putstr_fd(NORMAL);
+	ft_putchar_fd(c, fd);
+	ft_putstr_fd(NORMAL, 2);
 }
 
 void	ft_putchar_color(char c , char *color)
@@ -28,7 +28,7 @@ void	ft_putstr_color_fd(char *str, char *color, int fd)
 {
 	ft_putstr_fd(color, fd);
 	ft_putstr_fd(str, fd);
-	ft_putstr_fd(NORMAL);
+	ft_putstr_fd(NORMAL, 2);
 }
 
 void	ft_putstr_color(char *str, char *color)
