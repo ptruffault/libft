@@ -50,7 +50,7 @@ bin:
 bin/%.o: srcs/%.c 
 	@cat $< > $<tmp && rm -rf $< && mv $<tmp $< 
 	@gcc $(FLAG) -I includes/ -c $< -o $@
-	@echo "$(DONE)~\033[04m\033[1;33m$<$(NO_COLOR)"
+	@echo "  $(DONE) $(COLOR)$<"
 
 clean:
 	@rm -rf $(OBJ)
@@ -71,10 +71,14 @@ save: clean fclean
 	@git push
 	@echo "\t$(DONE)"
 
+update:
+	@echo "download lastest $(NAME) version"
+	@clear && rm -rf * && git clone $(GIT) tmpfold
+	@mv tmpfold/* . && rm -rf tmpfold
+
 re: fclean all
 
-
-
+.PHONY: all clean fclean re save update
 
 
 
