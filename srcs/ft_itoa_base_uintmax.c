@@ -23,7 +23,7 @@ static void	f(uintmax_t value, unsigned int base, char *str, int *i)
 	(*i)++;
 }
 
-char		*ft_itoa_base_unintmax(uintmax_t value, int base)
+char		*ft_itoa_base_u(uintmax_t value, int base)
 {
 	int		i;
 	char	*str;

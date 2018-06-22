@@ -26,7 +26,7 @@ static void	f(intmax_t value, int base, char *str, int *i)
 	(*i)++;
 }
 
-char		*ft_itoa_base_intmax(intmax_t value, int base)
+char		*ft_itoa_base(intmax_t value, int base)
 {
 	int		i;
 	char	*str;
