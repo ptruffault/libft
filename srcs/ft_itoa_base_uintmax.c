@@ -29,12 +29,14 @@ char		*ft_itoa_base_u(uintmax_t value, int base)
 	char	*str;
 
 	i = 0;
-	if (base < 2 || base > 16 || !(str = (char*)malloc(32)))
-		return (0);
+	if (base < 2 || base > 16)
+		return (NULL);
 	if (value == 0)
-		return ("0");
+		return (ft_strdup("0"));
 	if (value == 1)
-		return ("1");
+		return (ft_strdup("1"));
+	if (!(str = (char*)malloc(32)))
+		return (NULL);
 	f(value, base, str, &i);
 	str[i] = '\0';
 	return (str);

@@ -55,12 +55,12 @@ bin/%.o: srcs/%.c
 	@echo "  $(DONE) $(COLOR)$<"
 
 clean:
-	@rm -rf bin/*
+	@rm -rf $(NAME)
 	@echo "$(OP_COLOR)Cleaning (libft/*.o)\t $(DONE)"
 
 fclean: clean
 	@echo "$(OP_COLOR)Cleaning (libft/libft.a) $(DONE)"
-	@rm -rf $(NAME)
+	@rm -rf bin/*
 
 re: fclean all
 
