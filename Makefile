@@ -20,7 +20,7 @@ ft_strtrim.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_strsplit_word.c\
 ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_sqrt.c ft_strarrlen.c\
 ft_realloc.c  ft_new_path.c ft_get_tfile.c ft_error.c ft_strndup.c\
 ft_get_file_inf.c  ft_free_tfile.c ft_new_tfile.c ft_itoa_base_uintmax.c \
-ft_putstr_color_fd.c ft_sort_tfile.c ft_freestrarr.c \
+ft_putstr_color_fd.c ft_sort_tfile.c ft_freestrarr.c ft_get_next_word.c\
 ft_str_startwith.c ft_strsplit_whitespace.c ft_char_to_str.c \
 ft_itoa_base_intmax.c ft_stradd_char.c ft_strjoin_fr.c \
 
