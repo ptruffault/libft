@@ -52,7 +52,7 @@ char		**ft_strsplit_whitespace(char *str)
 			i++;
 		if (str[i] != '\0')
 		{
-			tab[k] = get_next_word(&str[i]);
+			tab[k] = ft_get_next_word(&str[i]);
 			i = i + ft_strlen(tab[k++]);
 		}
 	}

@@ -1,6 +1,6 @@
 #include "../includes/libft.h"
 
-char		*get_next_word(char *str)
+char		*ft_get_next_word(char *str)
 {
 	char	*word;
 	int		j;
