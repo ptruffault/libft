@@ -19,7 +19,7 @@ char		*ft_get_next_word(char *str)
 
 	j = 0;
 	word = NULL;
-	while(IS_SPACE(*str))
+	while (IS_SPACE(*str))
 		str++;
 	while (!(IS_SPACE(str[j])) && str[j] != '\0')
 		j++;
