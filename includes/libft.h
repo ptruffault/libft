@@ -65,6 +65,7 @@ struct	s_file
 	t_file		*next;
 };
 
+void	ft_strdel_from_arr(int n, void *arr, size_t width, int len);
 char	*ft_get_next_word(char *str);
 void	ft_putchar_color(char c, char *color);
 void	ft_putchar_color_fd(char c, char *color, int fd);
