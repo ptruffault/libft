@@ -42,7 +42,7 @@ all:  bin srcs $(NAME)
 $(NAME): $(OBJ) 
 	@ar rc $@ $^
 	@ranlib $@
-	@echo "$(DONE)$(OP_COLOR)$(NAME)$(NO_COLOR)"
+	@printf "$(DONE)$(OP_COLOR)$(NAME)$(NO_COLOR)  \n"
 
 bin:
 	@mkdir $@
@@ -52,7 +52,7 @@ srcs:
 
 bin/%.o: srcs/%.c 
 	@gcc $(FLAG) -I includes/ -c $< -o $@
-	@echo "  $(DONE) $(COLOR)$<"
+	@printf "  $(DONE) $(COLOR)$<                               \r"
 
 clean:
 	@rm -rf bin/*
