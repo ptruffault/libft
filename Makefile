@@ -42,7 +42,7 @@ all:  bin srcs $(NAME)
 $(NAME): $(OBJ) 
 	@ar rc $@ $^
 	@ranlib $@
-	@printf "$(DONE)$(OP_COLOR)$(NAME)$(NO_COLOR)  \n"
+	@printf "\n$(DONE)$(OP_COLOR)$(NAME)$(NO_COLOR)  \n"
 
 bin:
 	@mkdir $@
