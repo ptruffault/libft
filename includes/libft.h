@@ -26,6 +26,7 @@
 # include <sys/types.h>
 # include <sys/xattr.h>
 # include <stdint.h>
+# include "get_input.h"
 # define BUFF_SIZE 256
 # define IS_SPACE(x) (x == ' ' || x == '\t' || x == '\r' || x == '\f')
 # define BLEUCLAIR 	"\033[01;34m"
