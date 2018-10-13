@@ -95,6 +95,8 @@ void			delete_left(t_edit *e);
 void			ft_add_char(char buf, t_edit *e);
 void			curs_move_right(t_edit *e);
 void			curs_move_left(t_edit *e);
+void			curs_move_to(t_edit *e, int x, int y);
+void			curs_reset(t_edit *e);
 void			curs_gotoend(t_edit *e);
 void			curs_reset(t_edit *e);
 void			ft_print_line(t_edit *e);

@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../includes/get_input.h"
+
 static void	ft_delete(t_edit *e)
 {
 	int i;

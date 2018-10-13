@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../includes/get_input.h"
+
 static int	ft_open(char *path)
 {
 	int fd;

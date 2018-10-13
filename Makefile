@@ -29,10 +29,11 @@ GET_INPT	=	handle_input.c \
 				setup.c \
 				get_input.c \
 				tenvv_tools.c \
-				cursor_tools.c \
+				curs_move.c \
 				input_tools.c \
 				init_tenv.c \
-				history.c
+				history.c \
+				print_line.c
 
 FLAG		 = -Wall -Werror -Wextra
 
