@@ -12,10 +12,10 @@ ft_ismaj.c ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 ft_isascii.c ft_isprint.c ft_toupper.c ft_tolower.c get_next_line.c\
 ft_memalloc.c ft_itoa.c  ft_putchar_fd.c ft_memdel.c ft_strdel.c\
 ft_putchar.c ft_putendl_fd.c ft_putendl.c ft_putnbr_fd.c \
-ft_putnbr.c ft_putstr_fd.c ft_putstr.c ft_putstr_tab.c \
+ft_putnbr.c ft_putstr_fd.c ft_putstr.c ft_putstr_tab.c ft_write_in_file.c\
 ft_strclr.c ft_strequ.c ft_striter.c ft_search_tfile.c ft_get_prev_path.c \
-ft_striteri.c ft_strjoin.c ft_strmap.c ft_strmapi.c ft_strpull.c \
-ft_strnequ.c ft_strnew.c ft_strsplit.c ft_strsub.c \
+ft_striteri.c ft_strjoin.c ft_strmap.c ft_strmapi.c ft_strpull.c ft_open.c\
+ft_strnequ.c ft_strnew.c ft_strsplit.c ft_strsub.c ft_get_line_in_file.c\
 ft_strtrim.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_strsplit_word.c\
 ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_sqrt.c ft_strarrlen.c\
 ft_realloc.c  ft_new_path.c ft_get_tfile.c ft_error.c ft_strndup.c\
@@ -32,7 +32,6 @@ GET_INPT	=	handle_input.c \
 				curs_move.c \
 				input_tools.c \
 				init_tenv.c \
-				history.c \
 				print_line.c
 
 FLAG		 = -Wall -Werror -Wextra
@@ -64,6 +63,13 @@ bin:
 
 srcs:
 	@mkdir $@
+
+get_clean:
+	@rm -rf $(NAME) $(addprefix $(OBJ_FOLDER), $(GET_INPT:.c=.o))
+
+get_input: get_clean all
+	gcc mai.c libft.a -ltermcap
+	./a.out
 
 bin/%.o: $(FILE_FOLDER)%.c 
 	@gcc $(FLAG) -I includes -c $< -o $@

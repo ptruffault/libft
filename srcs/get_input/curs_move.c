@@ -22,9 +22,9 @@ void	curs_reset(t_edit *e)
 void	curs_move_to(t_edit *e, int x, int y)
 {
 	curs_reset(e);
-	if (y * e->t->width + x > e->size)
+	if (y * e->t->width + x > e->size || (x == -1 && y == -1))
 	{
-		x = e->size - e->t->nb_of_l * e->t->width;
+		x = e->size - e->t->nb_of_l * e->t->width - 1;
 		y = (e->size - x) / e->t->width;
 	}
 	while (e->t->y != y)
@@ -47,8 +47,11 @@ void	curs_move_left(t_edit *e)
 	{
 		TERM(CURSEUR_UP);
 		e->t->y--;
-		while (e->t->x++ < (e->t->y + 1) * e->t->width)
+		while (e->t->x < (e->t->y + 1) * e->t->width)
+		{
 			TERM(CURSEUR_RI);
+			e->t->x++;
+		}
 	}
 }
 
@@ -65,7 +68,10 @@ void	curs_move_right(t_edit *e)
 		e->t->y++;
 		if (e->t->y > e->t->nb_of_l)
 			e->t->nb_of_l++;
-		while (e->t->x-- > 0)
+		while (e->t->x > 1)
+		{
 			TERM(CURSEUR_LE);
+			e->t->x--;
+		}
 	}
 }

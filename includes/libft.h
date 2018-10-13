@@ -66,11 +66,15 @@ struct	s_file
 	t_file		*next;
 };
 
+void	ft_write_in_file(int mode, char *path, char *str);
+char 	*ft_get_line_in_file(char *path, int n);
+int 	ft_open(char *path);
+void	ft_putstr_tab_fd(char **t, int fd);
 void	ft_strdel_from_arr(int n, void *arr, size_t width, int len);
 char	*ft_get_next_word(char *str);
 void	ft_putchar_color(char c, char *color);
 void	ft_putchar_color_fd(char c, char *color, int fd);
-int		ft_strarrlen(char **arr);
+size_t	ft_strarrlen(char **arr);
 char	**ft_strsplit_word(char *str);
 void	warning(char *descript, char *opts);
 void	error(char *descript, char *opts);

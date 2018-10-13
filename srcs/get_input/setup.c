@@ -50,7 +50,7 @@ t_edit		init_tedit(char **env)
 	e.size = 1;
 	e.input = ft_strnew(2);
 	setup_term(&e, env);
-	e.curr_history = -1;
+	e.curr_history = 0;
 	return (e);
 }
 

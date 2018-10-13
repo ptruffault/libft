@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strarrlen.c                                     :+:      :+:    :+:   */
+/*   ft_get_line_in_file.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/21 14:30:56 by ptruffau          #+#    #+#             */
-/*   Updated: 2018/06/21 14:30:58 by ptruffau         ###   ########.fr       */
+/*   Created: 2018/10/13 15:43:04 by ptruffau          #+#    #+#             */
+/*   Updated: 2018/10/13 15:43:06 by ptruffau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-size_t	ft_strarrlen(char **arr)
+char *ft_get_line_in_file(char *path, int n)
 {
-	size_t i;
+	char	**arr;
+	char	*ret;
+	int		fd;
 
-	i = 0;
-	while ((arr[i]))
-		i++;
-	return (i);
+	ret = NULL;
+	if (n < 0 || (fd = ft_open(path)) < 2)
+		return (NULL);
+	if ((arr = ft_get_txt(fd)) &&
+	n < (int)ft_strarrlen(arr))
+	{
+		ret = ft_strdup(arr[n]);
+		ft_freestrarr(arr);
+	}
+	return (ret);
 }

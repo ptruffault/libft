@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strarrlen.c                                     :+:      :+:    :+:   */
+/*   ft_open.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/21 14:30:56 by ptruffau          #+#    #+#             */
-/*   Updated: 2018/06/21 14:30:58 by ptruffau         ###   ########.fr       */
+/*   Created: 2018/10/13 15:28:15 by ptruffau          #+#    #+#             */
+/*   Updated: 2018/10/13 15:28:17 by ptruffau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-size_t	ft_strarrlen(char **arr)
+int ft_open(char *path)
 {
-	size_t i;
+	int fd;
 
-	i = 0;
-	while ((arr[i]))
-		i++;
-	return (i);
+	if ((fd = open(path, O_RDWR) < 0))
+	{
+		warning("can't acess", path);
+		perror(NULL);
+	}
+	return (fd);
 }
