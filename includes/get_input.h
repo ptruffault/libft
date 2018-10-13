@@ -1,5 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_input.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/13 12:57:16 by ptruffau          #+#    #+#             */
+/*   Updated: 2018/10/13 12:57:17 by ptruffau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_GET_INPUT_H
 # define FT_GET_INPUT_H
+
 # include "termios.h"
 # include <termios.h>
 # include "term.h"
@@ -10,7 +23,6 @@
 # include <signal.h>
 # include <sys/ioctl.h>
 # include "libft.h"
-
 # define HISTORY_PATH "./history"
 # define KEY_ENTER 0xA
 # define ARROW_UP 4283163
@@ -47,58 +59,57 @@
 # define UNDERLINE_CURS "uc"
 # define DELETE_LINE "dl"
 
-enum BOOL {FALSE = 0, TRUE = 1};
-typedef enum BOOL bool ;
-
+typedef enum	e_boolen {
+	FALSE = 0,
+	TRUE = 1
+}				t_bool;
 typedef struct	s_envv
 {
 	char			*name;
 	char			*value;
 	struct s_envv	*next;
 }				t_envv;
-
-
-typedef struct s_termi
+typedef struct	s_termi
 {
 	struct termios	term;
 	int				x;
 	int				y;
-	int 			nb_of_l;
+	int				nb_of_l;
 	char			*cm_cap;
-	int 			width;
+	int				width;
 }				t_termi;
 
 typedef struct	s_edit
 {
-	bool edited;
-	char *input;
-	int curr;
-	int size;
-	int curr_history;
-	t_termi *t;
+	t_bool	edited;
+	char	*input;
+	int		curr;
+	int		size;
+	int		curr_history;
+	t_termi	*t;
 }				t_edit;
 
-void 		ft_exit(t_edit *e);
-void 		delete_on(t_edit *e);
-void 		delete_left(t_edit *e);
-void 		ft_add_char(char buf, t_edit *e);
-void		curs_move_right(t_edit *e);
-void		curs_move_left(t_edit *e);
-void		curs_gotoend(t_edit *e);
-void		curs_reset(t_edit *e);
-void 		ft_print_line(t_edit *e);
-void		ft_clear(t_edit *e);
-void		ft_delete_line(t_edit *e);
-char		*get_tenvv_val(t_envv *envv, char *name);
-t_envv		*new_tenvv(void);
-t_envv		*init_tenvv(t_envv *envv, char **tab_envv);
-void		save_input_in_file(t_edit *e);
-void		hist_move_down(t_edit *e);
-void 		hist_move_up(t_edit *e);
-char		*get_input(char **env);
-void 		handle_input(unsigned long buf, t_edit *e);
-t_edit		*get_set_edit(t_edit *new_ed);
-t_edit 		init_tedit(char **env);
-void 		free_tedit(t_edit *e);
-void		ft_free_tenvv(t_envv *envv);
+void			ft_exit(t_edit *e);
+void			delete_on(t_edit *e);
+void			delete_left(t_edit *e);
+void			ft_add_char(char buf, t_edit *e);
+void			curs_move_right(t_edit *e);
+void			curs_move_left(t_edit *e);
+void			curs_gotoend(t_edit *e);
+void			curs_reset(t_edit *e);
+void			ft_print_line(t_edit *e);
+void			ft_clear(t_edit *e);
+void			ft_delete_line(t_edit *e);
+char			*get_tenvv_val(t_envv *envv, char *name);
+t_envv			*new_tenvv(void);
+t_envv			*init_tenvv(t_envv *envv, char **tab_envv);
+void			save_input_in_file(t_edit *e);
+void			hist_move_down(t_edit *e);
+void			hist_move_up(t_edit *e);
+char			*get_input(char **env);
+void			handle_input(unsigned long buf, t_edit *e);
+t_edit			*get_set_edit(t_edit *new_ed);
+t_edit			init_tedit(char **env);
+void			free_tedit(t_edit *e);
+void			ft_free_tenvv(t_envv *envv);
 #endif
