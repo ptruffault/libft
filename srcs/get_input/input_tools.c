@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   input_tools.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/13 13:21:10 by ptruffau          #+#    #+#             */
+/*   Updated: 2018/10/13 13:21:12 by ptruffau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/get_input.h"
 
-void ft_add_char(char buf, t_edit *e)
+void	ft_add_char(char buf, t_edit *e)
 {
 	int i;
 
@@ -17,11 +29,11 @@ void ft_add_char(char buf, t_edit *e)
 	ft_print_line(e);
 }
 
-void delete_left(t_edit *e)
+void	delete_left(t_edit *e)
 {
-	int i;
-	int j;
-	char *tmp;
+	int		i;
+	int		j;
+	char	*tmp;
 
 	if (e->curr < 1)
 		return ;
@@ -29,7 +41,7 @@ void delete_left(t_edit *e)
 	j = 0;
 	tmp = ft_strnew(--e->size);
 	while (e->input[j])
-	{	
+	{
 		if (j != e->curr - 1)
 			tmp[i++] = e->input[j];
 		j++;
@@ -42,11 +54,11 @@ void delete_left(t_edit *e)
 	ft_print_line(e);
 }
 
-void delete_on(t_edit *e)
+void	delete_on(t_edit *e)
 {
-	int i;
-	int j;
-	char *tmp;
+	int		i;
+	int		j;
+	char	*tmp;
 
 	if (e->curr == e->size)
 		return ;
@@ -54,7 +66,7 @@ void delete_on(t_edit *e)
 	j = 0;
 	tmp = ft_strnew(--e->size);
 	while (e->input[j])
-	{	
+	{
 		if (j != e->curr)
 			tmp[i++] = e->input[j];
 		j++;
@@ -65,7 +77,7 @@ void delete_on(t_edit *e)
 	ft_print_line(e);
 }
 
-void ft_exit(t_edit *e)
+void	ft_exit(t_edit *e)
 {
 	free_tedit(e);
 	exit(0);

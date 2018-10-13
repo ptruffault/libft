@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   setup.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/13 13:23:52 by ptruffau          #+#    #+#             */
+/*   Updated: 2018/10/13 13:23:53 by ptruffau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/get_input.h"
 
 static void	setup_term(t_edit *e, char **tab_env)
 {
 	struct winsize	window;
-	t_envv *envv;
+	t_envv			*envv;
 
 	if (!(envv = init_tenvv(new_tenvv(), tab_env))
 	|| tgetent(NULL, get_tenvv_val(envv, "TERM")) != 1)
@@ -26,10 +38,10 @@ static void	setup_term(t_edit *e, char **tab_env)
 	e->t->nb_of_l = 0;
 	e->t->x = 0;
 	e->t->y = 0;
-	e->t->cm_cap = tgetstr("cm", NULL); // update le cm
+	e->t->cm_cap = tgetstr("cm", NULL);
 }
 
-t_edit init_tedit(char **env)
+t_edit		init_tedit(char **env)
 {
 	t_edit e;
 
@@ -42,17 +54,17 @@ t_edit init_tedit(char **env)
 	return (e);
 }
 
-void free_tedit(t_edit *e)
+void		free_tedit(t_edit *e)
 {
 	if (e->t != NULL)
 	{
 		if (tcgetattr(0, &e->t->term) == -1)
-   			warning("can't reset term", NULL);
+			warning("can't reset term", NULL);
 		e->t->term.c_lflag = (ICANON | ECHO);
 		if (tcsetattr(0, 0, &e->t->term) == -1)
-   			warning("can't reset term", NULL);
-   		free(e->t);
-   	}
+			warning("can't reset term", NULL);
+		free(e->t);
+	}
 	ft_strdel(&e->input);
 	e = NULL;
 }

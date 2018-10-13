@@ -41,7 +41,7 @@ static char	*get_value(char *equal)
 	return (value);
 }
 
-t_envv	*init_tenvv(t_envv *envv, char **tab_envv)
+t_envv		*init_tenvv(t_envv *envv, char **tab_envv)
 {
 	int		i;
 	int		len;
