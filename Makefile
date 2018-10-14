@@ -86,7 +86,6 @@ clean:
 fclean: clean
 	@echo "$(OP_COLOR)Cleaning (libft/libft.a) $(DONE)"
 	@rm -rf $(NAME)
-	@rm -rf ./history
 
 re: fclean all
 
