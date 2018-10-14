@@ -69,7 +69,7 @@ struct	s_file
 void	ft_write_in_file(int mode, char *path, char *str);
 char 	*ft_get_line_in_file(char *path, int n);
 int 	ft_open(char *path);
-void	ft_putstr_tab_fd(char **t, int fd);
+void	ft_putstrarr_fd(char **t, int fd);
 void	ft_strdel_from_arr(int n, void *arr, size_t width, int len);
 char	*ft_get_next_word(char *str);
 void	ft_putchar_color(char c, char *color);
@@ -168,7 +168,7 @@ void	ft_putchar(char c);
 void	ft_putstr(char const *s);
 void	ft_putstr_color(char *str, char *color);
 void	ft_putstr_color_fd(char *str, char *color, int fd);
-void	ft_putstr_tab(char **t);
+void	ft_putstrarr(char **t);
 void	ft_putendl(char const *s);
 void	ft_putnbr(int n);
 void	ft_putchar_fd(char c, int fd);

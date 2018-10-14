@@ -15,31 +15,25 @@
 //							INSTEAD OF mode = 0
 #include "../includes/libft.h"
 
-static void put(char *s, int fd)
-{
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
-}
-
 void	ft_write_in_file(int mode, char *path, char *str)
 {
 	int fd;
 	char **arr;
 	
-	if ((fd = ft_open(path) <= 2))
+	if ((fd = ft_open(path)) < 2)
 		return ;
 	if (mode == 0)
-		put(str, fd);
+		ft_putstr_fd(str, fd);
 	else
 	{	
 		arr = ft_get_txt(fd);
 		if (mode == 2)
-			put(str, fd);
+			ft_putendl_fd(str, fd);
 		else if (mode == 1)
 		{
 			close(fd);
 			fd = ft_open(path);
-			put(str, fd);
+			ft_putendl_fd(str, fd);
 			
 		}
 		ft_freestrarr(arr);

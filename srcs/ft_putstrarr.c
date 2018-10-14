@@ -24,7 +24,7 @@ void	ft_putstr_tab_fd(char **t, int fd)
 	}
 }
 
-void	ft_putstr_tab(char **t)
+void	ft_putstarr(char **t)
 {
 	ft_putstr_tab_fd(t, 1);
 }

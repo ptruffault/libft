@@ -16,7 +16,7 @@ int ft_open(char *path)
 {
 	int fd;
 
-	if ((fd = open(path, O_RDWR) < 0))
+	if ((fd = open(path, O_CREAT | O_RDWR)) <= 2)
 	{
 		warning("can't acess", path);
 		perror(NULL);

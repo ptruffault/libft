@@ -19,13 +19,13 @@ char *ft_get_line_in_file(char *path, int n)
 	int		fd;
 
 	ret = NULL;
+	arr = NULL;
 	if (n < 0 || (fd = ft_open(path)) < 2)
 		return (NULL);
 	if ((arr = ft_get_txt(fd)) &&
 	n < (int)ft_strarrlen(arr))
-	{
 		ret = ft_strdup(arr[n]);
-		ft_freestrarr(arr);
-	}
+	ft_putstrarr(arr);
+	ft_freestrarr(arr);
 	return (ret);
 }

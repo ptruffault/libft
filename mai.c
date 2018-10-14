@@ -2,10 +2,8 @@
 
 int main(int ac, char **av, char **e)
 {
-	int fd;
-
-	fd = ft_open("./history");
-	printf("%i\n", fd);
-	ft_putstr_fd("LOL", fd);
+	char *ret = ft_get_line_in_file(HISTORY_PATH, 5);
+	
+	ft_putstr(ret);
 	return (0);
 }

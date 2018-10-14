@@ -16,7 +16,7 @@ void	ft_putendl_fd(const char *str, int fd)
 {
 	if (str != NULL)
 	{
-		write(fd, str, ft_strlen(str));
+		ft_putstr_fd(str, fd);
 		ft_putchar_fd('\n', fd);
 	}
 }
