@@ -64,13 +64,6 @@ bin:
 srcs:
 	@mkdir $@
 
-get_clean:
-	@rm -rf $(NAME) $(addprefix $(OBJ_FOLDER), $(GET_INPT:.c=.o))
-
-get_input: get_clean all
-	gcc mai.c libft.a -ltermcap
-	./a.out
-
 bin/%.o: $(FILE_FOLDER)%.c 
 	@gcc $(FLAG) -I includes -c $< -o $@
 	@printf "  $(DONE) $(COLOR)$<                               \r"

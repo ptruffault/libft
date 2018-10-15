@@ -25,7 +25,7 @@ char *ft_get_line_in_file(char *path, int n)
 	if ((arr = ft_get_txt(fd)) &&
 	n < (int)ft_strarrlen(arr))
 		ret = ft_strdup(arr[n]);
-	ft_putstrarr(arr);
 	ft_freestrarr(arr);
+	close(fd);
 	return (ret);
 }

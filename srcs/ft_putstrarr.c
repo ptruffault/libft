@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_tab.c                                    :+:      :+:    :+:   */
+/*   ft_putstrarr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-void	ft_putstr_tab_fd(char **t, int fd)
+void	ft_putstrarr_fd(char **t, int fd)
 {
 	int i;
 
@@ -24,7 +24,7 @@ void	ft_putstr_tab_fd(char **t, int fd)
 	}
 }
 
-void	ft_putstarr(char **t)
+void	ft_putstrarr(char **t)
 {
-	ft_putstr_tab_fd(t, 1);
+	ft_putstrarr_fd(t, 1);
 }

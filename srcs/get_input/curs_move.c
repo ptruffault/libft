@@ -67,7 +67,7 @@ void	curs_move_right(t_edit *e)
 		TERM(CURSEUR_DO);
 		e->t->y++;
 		if (e->t->y > e->t->nb_of_l)
-			e->t->nb_of_l++;
+			e->t->nb_of_l = e->t->y;
 		while (e->t->x > 1)
 		{
 			TERM(CURSEUR_LE);

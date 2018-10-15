@@ -89,6 +89,9 @@ typedef struct	s_edit
 	t_termi	*t;
 }				t_edit;
 
+void	ft_delete_line(t_edit *e);
+void	hist_move_do(t_edit *e);
+void	hist_move_up(t_edit *e);
 void			ft_exit(t_edit *e);
 void			delete_on(t_edit *e);
 void			delete_left(t_edit *e);

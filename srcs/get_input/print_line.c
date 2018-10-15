@@ -12,7 +12,7 @@
 
 #include "../../includes/get_input.h"
 
-static void	ft_delete(t_edit *e)
+void	ft_delete_line(t_edit *e)
 {
 	int i;
 
@@ -21,35 +21,28 @@ static void	ft_delete(t_edit *e)
 	while (i <= e->t->nb_of_l)
 	{
 		TERM(DELETE_LINE);
-		if (i++ != e->t->nb_of_l)
-			TERM(CURSEUR_DO);
+		i++;
 	}
 	curs_reset(e);
 }
 
-static void	ft_putstr_no_tab(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == '\t')
-			ft_putchar(' ');
-		else
-			ft_putchar(str[i]);
-		i++;
-	}
-}
-
 void		ft_print_line(t_edit *e)
 {
+	int i;
 	int save_x;
 	int save_y;
 
 	save_x = e->t->x;
 	save_y = e->t->y;
-	ft_delete(e);
-	ft_putstr_no_tab(e->input);
+	ft_delete_line(e);
+		i = 0;
+	while (e->input[i])
+	{
+		if (e->input[i] == '\t')
+			ft_putchar(' ');
+		else
+			ft_putchar(e->input[i]);
+		i++;
+	}
 	curs_move_to(e, save_x, save_y);
 }

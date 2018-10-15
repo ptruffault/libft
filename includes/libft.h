@@ -66,6 +66,7 @@ struct	s_file
 	t_file		*next;
 };
 
+char 	*ft_search_line_in_file(char *path, char *src);
 void	ft_write_in_file(int mode, char *path, char *str);
 char 	*ft_get_line_in_file(char *path, int n);
 int 	ft_open(char *path);

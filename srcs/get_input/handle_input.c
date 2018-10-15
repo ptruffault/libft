@@ -30,20 +30,6 @@ static void	curr_move_left(t_edit *e)
 	}
 }
 
-static void	hist_move(t_edit *e, int n)
-{
-	char	*tmp;
-	
-	if ((tmp = ft_get_line_in_file(HISTORY_PATH, n)))
-	{
-		ft_strdel(&e->input);
-		e->input = tmp;
-		e->size = ft_strlen(tmp);
-		curs_reset(e);
-		e->curr = 0;
-	}
-}
-
 
 void		handle_input(unsigned long buf, t_edit *e)
 {
@@ -54,9 +40,9 @@ void		handle_input(unsigned long buf, t_edit *e)
 	else if (buf == ARROW_RIGHT)
 		curr_move_right(e);
 	else if (buf == ARROW_UP)
-		hist_move(e, ++e->curr_history);
+		hist_move_up(e);
 	else if (buf == ARROW_DOWN)
-		hist_move(e, --e->curr_history);
+		hist_move_do(e);
 	else if (buf == TOUCHE_SUPPR)
 		delete_left(e);
 	else if (buf == TOUCHE_DEL)
