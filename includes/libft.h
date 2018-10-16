@@ -12,7 +12,7 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
+# include <fcntl.h>
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -26,6 +26,7 @@
 # include <sys/types.h>
 # include <sys/xattr.h>
 # include <stdint.h>
+# include "tenvv.h"
 # include "get_input.h"
 # define BUFF_SIZE 256
 # define IS_SPACE(x) (x == ' ' || x == '\t' || x == '\r' || x == '\f')
@@ -38,6 +39,10 @@
 # define CYAN 		"\033[1;36m"
 # define MAGENTA 	"\033[1;35m"
 # define JAUNE		"\033[1;39m"
+typedef enum	e_boolen {
+	FALSE = 0,
+	TRUE = 1
+}				t_bool;
 
 struct	s_list
 {
@@ -66,10 +71,12 @@ struct	s_file
 	t_file		*next;
 };
 
-char 	*ft_search_line_in_file(char *path, char *src);
+
+int		ft_match(char *s1, char *s2);
 void	ft_write_in_file(int mode, char *path, char *str);
 char 	*ft_get_line_in_file(char *path, int n);
 int 	ft_open(char *path);
+char 	*ft_search_line_in_file(char *path, char *src);
 void	ft_putstrarr_fd(char **t, int fd);
 void	ft_strdel_from_arr(int n, void *arr, size_t width, int len);
 char	*ft_get_next_word(char *str);

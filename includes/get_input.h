@@ -59,16 +59,6 @@
 # define UNDERLINE_CURS "uc"
 # define DELETE_LINE "dl"
 
-typedef enum	e_boolen {
-	FALSE = 0,
-	TRUE = 1
-}				t_bool;
-typedef struct	s_envv
-{
-	char			*name;
-	char			*value;
-	struct s_envv	*next;
-}				t_envv;
 typedef struct	s_termi
 {
 	struct termios	term;
@@ -89,9 +79,9 @@ typedef struct	s_edit
 	t_termi	*t;
 }				t_edit;
 
-void	ft_delete_line(t_edit *e);
-void	hist_move_do(t_edit *e);
-void	hist_move_up(t_edit *e);
+void			ft_delete_line(t_edit *e);
+void			hist_move_do(t_edit *e);
+void			hist_move_up(t_edit *e);
 void			ft_exit(t_edit *e);
 void			delete_on(t_edit *e);
 void			delete_left(t_edit *e);
@@ -105,14 +95,10 @@ void			curs_reset(t_edit *e);
 void			ft_print_line(t_edit *e);
 void			ft_clear(t_edit *e);
 void			ft_delete_line(t_edit *e);
-char			*get_tenvv_val(t_envv *envv, char *name);
-t_envv			*new_tenvv(void);
-t_envv			*init_tenvv(t_envv *envv, char **tab_envv);
 void 			add_to_file(char *path, char *s);
 char			*get_input(char **env);
 void			handle_input(unsigned long buf, t_edit *e);
 t_edit			*get_set_edit(t_edit *new_ed);
 t_edit			init_tedit(char **env);
 void			free_tedit(t_edit *e);
-void			ft_free_tenvv(t_envv *envv);
 #endif

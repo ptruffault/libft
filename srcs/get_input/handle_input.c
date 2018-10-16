@@ -55,6 +55,6 @@ void		handle_input(unsigned long buf, t_edit *e)
 		TERM(CLEAR);
 	else if (buf == TOUCHE_CTRL_C)
 		ft_exit(e);
-	else
+	else if (ft_isprint(buf))
 		ft_add_char((char)buf, e);
 }

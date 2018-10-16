@@ -28,5 +28,6 @@ char	*get_input(char **env)
 	ft_write_in_file(1, HISTORY_PATH, e.input);
 	ret = ft_strdup(e.input);
 	free_tedit(&e);
+	ft_putchar('\n');
 	return (ret);
 }
