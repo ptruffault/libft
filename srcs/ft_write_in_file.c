@@ -27,10 +27,13 @@ void	ft_write_in_file(int mode, char *path, char *str)
 	else if (mode == 1)
 	{
 		if (close(fd) < 0 || (fd = ft_open(path)) < 2)
+		{
+			ft_freestrarr(arr);
 			return ; 
+		}
 		ft_putendl_fd(str, fd);
 		ft_putstrarr_fd(arr, fd);
 	}
-	
+	ft_freestrarr(arr);
 	close(fd);
 }

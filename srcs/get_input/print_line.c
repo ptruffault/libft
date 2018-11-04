@@ -23,7 +23,6 @@ void	ft_delete_line(t_edit *e)
 		TERM(DELETE_LINE);
 		i++;
 	}
-	curs_reset(e);
 }
 
 void		ft_print_line(t_edit *e)

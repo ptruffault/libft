@@ -14,6 +14,5 @@
 
 void	ft_putstr(const char *str)
 {
-	if (str != NULL)
-		ft_putstr_fd(str, 1);
+	ft_putstr_fd(str, 1);
 }

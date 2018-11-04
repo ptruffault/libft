@@ -24,5 +24,6 @@ char *ft_search_line_in_file(char *path, char *src)
 		}
 		i++;
 	}
+	ft_freestrarr(arr);
 	return (NULL);
 }

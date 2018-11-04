@@ -39,10 +39,6 @@
 # define CYAN 		"\033[1;36m"
 # define MAGENTA 	"\033[1;35m"
 # define JAUNE		"\033[1;39m"
-typedef enum	e_boolen {
-	FALSE = 0,
-	TRUE = 1
-}				t_bool;
 
 struct	s_list
 {
@@ -72,6 +68,8 @@ struct	s_file
 };
 
 
+char	**ft_strarrjoin(char **src, char **to_add);
+char	**ft_strarrjoin_fr(char **src, char **to_add);
 int		ft_match(char *s1, char *s2);
 void	ft_write_in_file(int mode, char *path, char *str);
 char 	*ft_get_line_in_file(char *path, int n);
