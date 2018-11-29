@@ -18,6 +18,7 @@ char *ft_search_line_in_file(char *path, char *src)
 		if (ft_match(arr[i], tmp) && !ft_strequ(src, arr[i]))
 		{
 			ret = ft_strdup(arr[i]);
+			ft_strdel(&tmp);
 			ft_freestrarr(arr);
 			close(fd);
 			return (ret);
@@ -25,5 +26,6 @@ char *ft_search_line_in_file(char *path, char *src)
 		i++;
 	}
 	ft_freestrarr(arr);
+	ft_strdel(&tmp);
 	return (NULL);
 }
