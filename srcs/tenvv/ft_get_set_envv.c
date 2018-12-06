@@ -20,5 +20,3 @@ t_envv *ft_get_set_envv(t_envv *t)
 		e = t;
 	return (e);
 }
-
-

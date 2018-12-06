@@ -32,7 +32,7 @@ static int		word_len(char *str)
 	i = 0;
 	if (ft_is_quote(str) < 1)
 	{
-		while (!(IS_SPACE(str[i])) && str[i] != '\0')
+		while (!(ft_isspace(str[i])) && str[i] != '\0')
 			i++;
 		return (i);
 	}
@@ -51,14 +51,14 @@ static char		**init_tab(char *s)
 	n = 0;
 	while (s[i] != '\0')
 	{
-		if (!(IS_SPACE(s[i])))
+		if (!(ft_isspace(s[i])))
 		{
 			if ((s[i] == '"' || s[i] == '\'')
 			&& (ptr = ft_strchr(&s[i + 1], s[i])))
 				i = i + (ptr - &s[i]);
 			else
 			{
-				while (!(IS_SPACE(s[i])) && s[i] != '\0')
+				while (!(ft_isspace(s[i])) && s[i] != '\0')
 					i++;
 			}
 			n++;
@@ -101,7 +101,7 @@ char			**ft_strsplit_word(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (!(IS_SPACE(str[i])))
+		if (!(ft_isspace(str[i])))
 		{
 			if (!(t[k++] = get_next_word(&str[i])))
 				return (t);

@@ -19,9 +19,9 @@ char		*ft_get_next_word(char *str)
 
 	j = 0;
 	word = NULL;
-	while (IS_SPACE(*str))
+	while (ft_isspace(*str))
 		str++;
-	while (!(IS_SPACE(str[j])) && str[j] != '\0')
+	while (!(ft_isspace(str[j])) && str[j] != '\0')
 		j++;
 	if (!(word = ft_strnew(j)))
 	{

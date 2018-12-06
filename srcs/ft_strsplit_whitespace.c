@@ -19,15 +19,15 @@ static int	ft_nw(char *s)
 
 	i = 0;
 	n = 0;
-	while (IS_SPACE(s[i]))
+	while (ft_isspace(s[i]))
 		i++;
 	while (s[i])
 	{
-		if (IS_SPACE(s[i]) && !(IS_SPACE(s[i - 1])))
+		if (ft_isspace(s[i]) && !(ft_isspace(s[i - 1])))
 			n++;
 		i++;
 	}
-	if (!(IS_SPACE(s[i - 1])) && !s[i])
+	if (!(ft_isspace(s[i - 1])) && !s[i])
 		n++;
 	return (n);
 }
@@ -48,7 +48,7 @@ char		**ft_strsplit_whitespace(char *str)
 	}
 	while (str[i] != '\0')
 	{
-		while (IS_SPACE(str[i]))
+		while (ft_isspace(str[i]))
 			i++;
 		if (str[i] != '\0')
 		{

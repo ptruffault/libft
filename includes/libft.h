@@ -29,7 +29,7 @@
 # include "tenvv.h"
 # include "get_input.h"
 # define BUFF_SIZE 256
-# define IS_SPACE(x) (x == ' ' || x == '\t' || x == '\r' || x == '\f')
+
 # define BLEUCLAIR 	"\033[01;34m"
 # define ROUGE 		"\033[00;31m"
 # define BLEU 		"\033[00;34m"
@@ -114,12 +114,7 @@ char	**ft_get_txt(int fd);
 char	**ft_strsplit_whitespace(char *s);
 char	*ft_strpull(char *src, char *ptr, int len, char *value);
 char	*ft_strndup(char *src, int len);
-t_list	*ft_lstnew(const void *content, size_t content_size);
-void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void	ft_lstadd(t_list **alst, t_list *new);
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
 char	**ft_strsplit(char const *s, char c);
 void	*ft_memset(void *s, int c, size_t n);
 int		ft_isblank(int c);
@@ -148,6 +143,7 @@ int		ft_ismaj(char c);
 int		ft_ismin(char c);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
+int 	ft_isspace(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
