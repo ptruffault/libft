@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit_whitespace.c                           :+:      :+:    :+:   */
+/*  ft_count_word.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,30 +12,22 @@
 
 #include "../includes/libft.h"
 
-char		**ft_strsplit_whitespace(char *str)
+int	ft_count_word(char *s)
 {
-	int		i;
-	int		k;
-	char	**t;
+	int i;
+	int n;
 
 	i = 0;
-	k = 0;
-	t = NULL;
-	if (!(t = (char **)malloc(sizeof(char *) * ft_count_word(str) + 1)))
+	n = 0;
+	while (ft_isspace(s[i]))
+		i++;
+	while (s[i])
 	{
-		error("allocation failed", "ft_strsplit_whitespace");
-		return (NULL);
+		if (ft_isspace(s[i]) && !(ft_isspace(s[i - 1])))
+			n++;
+		i++;
 	}
-	while (str[i] != '\0')
-	{
-		while (ft_isspace(str[i]))
-			i++;
-		if (str[i] != '\0')
-		{
-			t[k] = ft_get_next_word(&str[i]);
-			i = i + ft_strlen(t[k++]);
-		}
-	}
-	t[k] = NULL;
-	return (t);
+	if (!(ft_isspace(s[i - 1])) && !s[i])
+		n++;
+	return (n);
 }

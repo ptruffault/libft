@@ -68,6 +68,7 @@ struct	s_file
 };
 
 
+int		ft_count_word(char *s);
 char	**ft_strarrjoin(char **src, char **to_add);
 char	**ft_strarrjoin_fr(char **src, char **to_add);
 int		ft_match(char *s1, char *s2);
