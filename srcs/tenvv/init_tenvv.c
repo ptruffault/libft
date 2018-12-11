@@ -15,19 +15,13 @@
 char	*get_name(char *equal)
 {
 	int		i;
-	char	*name;
 
 	i = 0;
-	while (equal[i] != '=')
-	{
-		if (equal[i++] == '\0')
-			return (NULL);
-	}
-	if (!(name = ft_strnew(i)))
+	while (equal[i] && equal[i] != '=')
+		i++;
+	if (equal[i] == 0)
 		return (NULL);
-	name = ft_strncpy(name, equal, i);
-	name[i + 1] = '\0';
-	return (name);
+	return (ft_strndup(equal, i));
 }
 
 char	*get_value(char *equal)
@@ -60,8 +54,5 @@ t_envv	*init_tenvv(t_envv *envv, char **tab_envv)
 			return (envv);
 		tmp = tmp->next;
 	}
-	envv = ft_setenv(envv, "USER", USER);
-	envv = ft_setenv(envv, "HOME", HOME);
-	envv = ft_setenv(envv, "HIST_PATH", HISTORY_PATH);
 	return (envv);
 }

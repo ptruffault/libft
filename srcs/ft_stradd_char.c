@@ -26,12 +26,11 @@ char	*ft_stradd_char(char *str, char c)
 		return (str);
 	}
 	len = ft_strlen(str);
-	if (!(new = ft_strnew(len + 1)))
+	if (!(new = ft_strnew(len + 2)))
 		return (NULL);
 	new = ft_strcpy(new, str);
 	new[len] = c;
 	new[len + 1] = '\0';
-	free(str);
-	str = NULL;
+	ft_strdel(&str);
 	return (new);
 }

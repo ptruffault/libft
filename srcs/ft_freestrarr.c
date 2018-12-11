@@ -16,11 +16,10 @@ void	ft_freestrarr(char **arr)
 {
 	int i;
 
-	if (!arr)
-		return ;
 	i = 0;
+	if (!arr || !*arr)
+		return ;
 	while (arr[i] != NULL)
 		ft_strdel(&arr[i++]);
 	free(arr);
-	arr = NULL;
 }

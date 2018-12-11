@@ -41,7 +41,7 @@ TENVV 		=	init_tenvv.c \
 				ft_setenv.c \
 				ft_unsetenv.c 
 
-FLAG		 = -Wall -Werror -Wextra
+FLAG		 = -Wall -Werror -Wextra -g
 
 FILE_FOLDER	= ./srcs/
 GET_INPT_FO = ./srcs/get_input/

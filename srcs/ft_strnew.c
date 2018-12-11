@@ -18,7 +18,7 @@ char		*ft_strnew(size_t size)
 	char	*new;
 
 	i = 0;
-	if (!(new = (char *)malloc(sizeof(char) * size + 1)))
+	if (!(new = (char *)malloc(sizeof(char) * (size + 1))))
 		return (NULL);
 	while (i <= size)
 		new[i++] = '\0';

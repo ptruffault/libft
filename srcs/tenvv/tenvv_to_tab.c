@@ -17,31 +17,22 @@ static char	*get_equal(char *name, char *value)
 	char *tmp;
 	char *ret;
 
-	if (!(tmp = ft_strnew(ft_strlen(name) + 2)))
+	if (!(tmp = ft_stradd_char(ft_strdup(name), '=')))
 		return (NULL);
-	tmp = ft_strcpy(tmp, name);
-	tmp[ft_strlen(name)] = '=';
-	tmp[ft_strlen(name) + 1] = '\0';
-	if (!(ret = ft_strjoin(tmp, value)))
-	{
-		free(tmp);
-		return (NULL);
-	}
-	free(tmp);
+	ret = ft_strjoin(tmp, value);
+	ft_strdel(&tmp);
 	return (ret);
 }
 
 static int	envv_len(t_envv *envv)
 {
-	t_envv	*tmp;
 	int		i;
 
 	i = 0;
-	tmp = envv;
-	while (tmp)
+	while (envv)
 	{
 		i++;
-		tmp = tmp->next;
+		envv = envv->next;
 	}
 	return (i);
 }
@@ -49,21 +40,17 @@ static int	envv_len(t_envv *envv)
 char	**tenvv_to_tab(t_envv *envv)
 {
 	char	**t;
-	t_envv	*tmp;
 	int		i;
-	int		len;
 
 	i = 0;
-	tmp = envv;
-	len = envv_len(envv) - 1;
-	if (!(t = (char **)malloc(sizeof(char *) * len + 1)))
+	if (!(t = (char **)malloc(sizeof(char *) * envv_len(envv))))
 		return (NULL);
-	while (i < len)
+	while (envv)
 	{
-		if ((t[i] = get_equal(tmp->name, tmp->value)))
+		if ((t[i] = get_equal(envv->name, envv->value)))
 			i++;
-		tmp = tmp->next;
-	}
+		envv = envv->next;
+	} 
 	t[i] = NULL;
 	return (t);
 }
