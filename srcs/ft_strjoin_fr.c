@@ -16,6 +16,12 @@ char	*ft_strjoin_fr(char *s1, char *s2)
 {
 	char *ret;
 
+	if (!s1 && !s2)
+		return (NULL);
+	if (!s1 && s2)
+		return (s2);
+	if (s1 && !s2)
+		return (s1);
 	if (!(ret = ft_strjoin(s1, s2)))
 		return (NULL);
 	ft_strdel(&s1);
