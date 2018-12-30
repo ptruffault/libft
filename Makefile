@@ -25,6 +25,17 @@ ft_str_startwith.c ft_strsplit_whitespace.c ft_char_to_str.c ft_get_txt.c\
 ft_itoa_base_intmax.c ft_stradd_char.c ft_strjoin_fr.c ft_putnstr.c 
 
 
+FT_PRINTF  = 	get_val.c \
+				ft_printf.c \
+				param.c \
+				get_tmpval.c \
+				disp.c \
+				wchar_utils.c \
+				fun_tools.c \
+				get_ox.c \
+				get_type.c \
+				tools_tparam.c
+
 GET_INPT	=	handle_input.c \
 				setup.c \
 				get_input.c \
@@ -46,14 +57,16 @@ FLAG		 = -Wall -Werror -Wextra -g
 FILE_FOLDER	= ./srcs/
 GET_INPT_FO = ./srcs/get_input/
 TENVV_FO	= ./srcs/tenvv/
-
+FT_PRINTF_FO = ./srcs/ft_printf/
 OBJ_FOLDER 	= ./bin/
 SRC			= $(addprefix $(FILE_FOLDER), $(FILES)) \
 			$(addprefix $(GET_INPT_FO), $(GET_INPT)) \
-			$(addprefix $(TENVV_FO), $(TENVV)) 
+			$(addprefix $(TENVV_FO), $(TENVV)) \
+			$(addprefix $(FT_PRINTF_FO), $(FT_PRINTF)) 
 OBJ			= $(addprefix $(OBJ_FOLDER), $(FILES:.c=.o)) \
 			$(addprefix $(OBJ_FOLDER), $(GET_INPT:.c=.o)) \
-			$(addprefix $(OBJ_FOLDER), $(TENVV:.c=.o))
+			$(addprefix $(OBJ_FOLDER), $(TENVV:.c=.o)) \
+			$(addprefix $(OBJ_FOLDER), $(FT_PRINTF:.c=.o))
 
 COLOR		= \033[01;34m
 NO_COLOR	= \033[00m
@@ -87,7 +100,11 @@ bin/%.o: $(GET_INPT_FO)%.c
 
 bin/%.o: $(TENVV_FO)%.c
 	@gcc $(FLAG) -I includes -c $< -o $@		
-	@printf "tenvv $(DONE) $(COLOR)$<$(NO_COLOR)$(NO_COLOR)                     \r"
+	@printf "tenvv $(DONE) $(COLOR)$<$(NO_COLOR)$(NO_COLOR)                \r"
+
+bin/%.o: $(FT_PRINTF_FO)%.c
+	@gcc $(FLAG) -I includes -c $< -o $@		
+	@printf "ft_printf $(DONE) $(COLOR)$<$(NO_COLOR)$(NO_COLOR)  \r"
 
 clean:
 	@rm -rf bin/*
