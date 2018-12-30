@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/get_input.h"
+#include <get_input.h>
 
-char	*get_input(char **env)
+char	*get_input(void)
 {
 	t_edit			e;
 	char			*ret;
 	unsigned long	buf;
 
-	e = init_tedit(env);
+	e = init_tedit();
 	while (e.edited == FALSE)
 	{
 		buf = 0;

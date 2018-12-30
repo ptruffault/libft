@@ -12,15 +12,13 @@
 
 #include "../includes/get_input.h"
 
-static void	setup_term(t_edit *e, char **tab_env)
+static void	setup_term(t_edit *e)
 {
 	struct winsize	window;
 	t_envv			*envv;
 
-	if (!(envv = init_tenvv(new_tenvv(), tab_env))
-	|| tgetent(NULL, get_tenvv_val(envv, "TERM")) != 1)
+	if (tgetent(NULL, get_tenvv_val(ft_get_set_envv(NULL), "TERM")) != 1)
 		warning("$TERM not valid, no termcaps", NULL);
-	ft_free_tenvv(envv);
 	if (!(e->t = (t_termi *)malloc(sizeof(t_termi))))
 		warning("malloc error", "t_termi");
 	if (tcgetattr(0, &e->t->term) == -1)
@@ -41,7 +39,7 @@ static void	setup_term(t_edit *e, char **tab_env)
 	e->t->cm_cap = tgetstr("cm", NULL);
 }
 
-t_edit		init_tedit(char **env)
+t_edit		init_tedit(void)
 {
 	t_edit e;
 
@@ -49,7 +47,7 @@ t_edit		init_tedit(char **env)
 	e.curr = 0;
 	e.size = 1;
 	e.input = ft_strnew(2);
-	setup_term(&e, env);
+	setup_term(&e);
 	e.curr_history = 0;
 	return (e);
 }
