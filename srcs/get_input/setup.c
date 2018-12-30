@@ -15,7 +15,6 @@
 static void	setup_term(t_edit *e)
 {
 	struct winsize	window;
-	t_envv			*envv;
 
 	if (tgetent(NULL, get_tenvv_val(ft_get_set_envv(NULL), "TERM")) != 1)
 		warning("$TERM not valid, no termcaps", NULL);
