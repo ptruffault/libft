@@ -51,17 +51,13 @@ char	*get_tenvv_val(t_envv *envv, char *name)
 
 void	ft_puttenvv(t_envv *envv)
 {
-	t_envv *tmp;
+	t_envv *t;
 
-	tmp = envv;
-	while (tmp != NULL && tmp->name != NULL && tmp->value != NULL)
+	t = envv;
+	while (t != NULL && t->name != NULL && t->value != NULL)
 	{
-		ft_putstr("\033[1;32m\033[04m");
-		ft_putstr(tmp->name);
-		ft_putstr("\033[00m = ");
-		ft_putstr(tmp->value);
-		ft_putchar('\n');
-		tmp = tmp->next;
+		ft_printf("\033[1;32m\033[04m%s\033[00m = %s\n", t->name, t->value);
+		t = t->next;
 	}
 }
 

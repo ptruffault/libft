@@ -51,7 +51,6 @@ uintmax_t		get_uent(va_list *ap, t_param *p);
 intmax_t		get_ent(va_list *ap, t_param *p);
 unsigned char	get_uchar(va_list *ap);
 char			get_char(va_list *ap);
-int				ft_printf(char *format, ...);
 char			*parse_spec(t_param *p, va_list *ap);
 int				test_flag(char *s, char c);
 int				print(char *format, t_param *p);
