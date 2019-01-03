@@ -54,7 +54,7 @@ void		handle_input(unsigned long buf, t_edit *e)
 	else if (buf == TOUCHE_F5)
 		TERM(CLEAR);
 	else if (buf == TOUCHE_CTRL_C)
-		ft_exit(e);
+		ft_putchar('\a');
 	else 
 		ft_add_char((char)buf, e);
 }

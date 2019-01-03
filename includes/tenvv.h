@@ -22,9 +22,11 @@ struct	s_envv
 	char	*value;
 	t_envv	*next;
 };
-t_envv *ft_get_set_envv(t_envv *t);
-t_envv	*ft_setenv(t_envv *envv, char *name, char *value);
-t_envv	*ft_unsetenv(t_envv *envv, char *name);
+t_envv	*ft_get_set_envv(t_envv *t);
+t_envv	*ft_new_envv(t_envv *envv, char *name, char *value);
+t_envv	*ft_setenv(t_envv *envv, char **t);
+t_envv	*ft_unsetenv(t_envv *envv, char **t);
+t_envv	*ft_del_envv(t_envv *envv, char *name);
 char	*get_value(char *equal);
 char	*get_name(char *equal);
 void	ft_puttenvv(t_envv *envv);

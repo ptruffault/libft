@@ -76,9 +76,3 @@ void	delete_on(t_edit *e)
 	e->input = tmp;
 	ft_print_line(e);
 }
-
-void	ft_exit(t_edit *e)
-{
-	free_tedit(e);
-	exit(0);
-}

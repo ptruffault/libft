@@ -10,37 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/tenvv.h"
+#include <tenvv.h>
 
-t_envv		*ft_unsetenv(t_envv *envv, char *name)
-{
-	t_envv *tmp;
-	t_envv *prev;
-
-	tmp = envv->next;
-	prev = envv;
-	if (ft_strequ(envv->name, name))
-	{
-		tmp = envv->next;
-		del_tenvv(envv);
-		return (tmp);
-	}
-	while (tmp)
-	{
-		if (ft_strequ(tmp->name, name))
-		{
-			prev->next = tmp->next;
-			del_tenvv(tmp);
-			return (envv);
-		}
-		prev = tmp;
-		tmp = tmp->next;
-	}
-	warning("there is no such var name in env", name);
-	return (envv);
-}
-
-t_envv		*ft_setenv(t_envv *envv, char *name, char *value)
+t_envv		*ft_new_envv(t_envv *envv, char *name, char *value)
 {
 	t_envv *new;
 	t_envv *tmp;
@@ -56,4 +28,33 @@ t_envv		*ft_setenv(t_envv *envv, char *name, char *value)
 	}
 	new->next = envv;
 	return (new);
+}
+
+t_envv 				*ft_setenv(t_envv *envv, char **t)
+{
+	char *name;
+	char *val;
+	int i;
+
+	i = (ft_strequ(t[0], "setenv") ? 1 : 0);
+	while (t[i])
+	{
+		if (ft_isequal(t[i]))
+		{
+			name = get_name(t[i]);
+			val = get_value(t[i]);
+			envv = ft_new_envv(envv, name, val);
+			ft_strdel(&name);
+			ft_strdel(&val);
+		}
+		else if (t[i + 1])
+		{
+			envv = ft_new_envv(envv, t[i], t[i + 1]);
+			i++;
+		}
+		else
+			warning("uninitialised value", t[i]);
+		i++;
+	}
+	return (envv);
 }

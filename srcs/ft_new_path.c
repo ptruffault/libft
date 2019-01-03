@@ -24,8 +24,7 @@ char	*ft_new_path(char *s1, char *s2)
 	j = 0;
 	path_len = ft_strlen(s1);
 	len = path_len + ft_strlen(s2) + 2;
-	if (!(new_path = ft_strnew(len)))
-		ft_putendl_fd("ft_get_path : allocation failed", 2);
+	new_path = ft_strnew(len);
 	while (i < len)
 	{
 		if (i < path_len)

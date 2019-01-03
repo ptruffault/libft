@@ -26,6 +26,6 @@ char *ft_get_line_in_file(char *path, int n)
 	n < (int)ft_strarrlen(arr))
 		ret = ft_strdup(arr[n]);
 	ft_freestrarr(arr);
-	close(fd);
+	ft_close(fd);
 	return (ret);
 }

@@ -68,8 +68,6 @@ t_envv	*ft_changetenvv_val(t_envv *envv, char *name, char *new_val)
 	tmp = envv;
 	if (!name)
 		return (envv);
-	if (!new_val)
-		return (ft_unsetenv(envv, name));
 	while (tmp)
 	{
 		if (ft_strequ(tmp->name, name))

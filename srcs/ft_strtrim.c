@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
-#include <stdlib.h>
+#include <libft.h>
 
 static int	ft_find_end(char const *s, int i, size_t *end)
 {

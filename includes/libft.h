@@ -67,12 +67,14 @@ struct	s_file
 	t_file		*next;
 };
 
+
 int		ft_printf(char *format, ...);
+int 	ft_close(int fd);
 int		ft_count_word(char *s);
 char	**ft_strarrjoin(char **src, char **to_add);
 char	**ft_strarrjoin_fr(char **src, char **to_add);
 int		ft_match(char *s1, char *s2);
-void	ft_write_in_file(int mode, char *path, char *str);
+void	ft_write_in_file(char *path, char *str);
 char 	*ft_get_line_in_file(char *path, int n);
 int 	ft_open(char *path);
 char 	*ft_search_line_in_file(char *path, char *src);
@@ -145,6 +147,7 @@ int		ft_ismaj(char c);
 int		ft_ismin(char c);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
+int 	ft_isequal(char *s);
 int 	ft_isempty(char *s);
 int 	ft_isspace(int c);
 int		ft_isalnum(int c);

@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 
-#include "../../includes/tenvv.h"
+#include <tenvv.h>
 
-t_envv		*ft_unsetenv(t_envv *envv, char *name)
+t_envv		*ft_del_envv(t_envv *envv, char *name)
 {
 	t_envv *tmp;
 	t_envv *prev;
@@ -38,5 +38,15 @@ t_envv		*ft_unsetenv(t_envv *envv, char *name)
 		tmp = tmp->next;
 	}
 	warning("there is no such var name in env", name);
+	return (envv);
+}
+
+t_envv		*ft_unsetenv(t_envv *envv, char **t)
+{
+	int i;
+
+	i = 0;
+	while (t[i])
+		envv = ft_del_envv(envv, t[i++]);
 	return (envv);
 }
