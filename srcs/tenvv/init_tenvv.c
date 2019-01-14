@@ -35,13 +35,16 @@ char	*get_value(char *equal)
 	return (value);
 }
 
-t_envv	*init_tenvv(t_envv *envv, char **tab_envv)
+t_envv	*init_tenvv(char **tab_envv)
 {
 	int		i;
 	int		len;
+	t_envv *envv;
 	t_envv	*tmp;
 
 	i = 0;
+	if (!(envv = new_tenvv()))
+		return (NULL);
 	tmp = envv;
 	len = ft_strarrlen(tab_envv);
 	while (i < len)

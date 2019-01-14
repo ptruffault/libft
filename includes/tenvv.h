@@ -38,5 +38,5 @@ char	*get_tenvv_val(t_envv *envv, char *name);
 t_envv	*get_tenvv(t_envv *envv, char *name);
 t_envv	*ft_tenvv_cpy(t_envv *src);
 char	**tenvv_to_tab(t_envv *envv);
-t_envv	*init_tenvv(t_envv *envv, char **tab_envv);
+t_envv	*init_tenvv(char **tab_envv);
 #endif

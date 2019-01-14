@@ -40,12 +40,10 @@ t_envv	*get_tenvv(t_envv *envv, char *name)
 
 char	*get_tenvv_val(t_envv *envv, char *name)
 {
-	while (envv)
-	{
-		if (ft_strequ(name, envv->name))
-			return (envv->value);
-		envv = envv->next;
-	}
+	t_envv *tmp;
+
+	if ((tmp = get_tenvv(envv, name)))
+		return (tmp->value);
 	return (NULL);
 }
 
