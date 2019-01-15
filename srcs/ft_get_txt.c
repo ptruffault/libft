@@ -22,15 +22,11 @@ char	**ft_get_txt(int fd)
 		return (NULL);
 	if (!(ret = (char **)malloc(sizeof(char *))))
 		return (NULL);
-	while (get_next_line(fd, &ret[i]))
+	while (get_next_line(fd, &ret[i]) && ret[i])
 	{
-		if (!(ret = ft_realloc(ret,
+		if ((ret = ft_realloc(ret,
 		(i + 1) * sizeof(char *), (i + 2) * sizeof(char *))))
-		{
-			ft_freestrarr(ret);
-			return (NULL);
-		}
-		i++;
+			i++;
 	}
 	return (ret);
 }
