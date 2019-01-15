@@ -28,5 +28,6 @@ char	**ft_get_txt(int fd)
 		(i + 1) * sizeof(char *), (i + 2) * sizeof(char *))))
 			i++;
 	}
+	ret[i] = NULL;
 	return (ret);
 }
