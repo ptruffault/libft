@@ -20,6 +20,6 @@ void	ft_write_in_file(char *path, char *str)
 	
 	if ((fd = open(path,  S_IRWXU | O_CREAT | O_APPEND , O_RDWR)) < 0)
 		return ;
-	ft_putstr_fd(str, fd);
+	ft_putendl_fd(str, fd);
 	ft_close(fd);
 }
