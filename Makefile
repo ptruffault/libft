@@ -17,7 +17,7 @@ ft_strclr.c ft_strequ.c ft_striter.c ft_search_tfile.c ft_get_prev_path.c \
 ft_striteri.c ft_strjoin.c ft_strmap.c ft_strmapi.c ft_strpull.c ft_open.c\
 ft_strnequ.c ft_strnew.c ft_strsplit.c ft_strsub.c ft_get_line_in_file.c\
 ft_strtrim.c ft_strsplit_word.c ft_isspace.c ft_count_word.c ft_delchar_n.c \
-ft_lstadd.c ft_sqrt.c ft_strarrlen.c ft_strarrjoin.c ft_isempty.c\
+ft_sqrt.c ft_strarrlen.c ft_strarrjoin.c ft_isempty.c\
 ft_realloc.c  ft_new_path.c ft_get_tfile.c ft_error.c ft_strndup.c\
 ft_get_file_inf.c  ft_free_tfile.c ft_new_tfile.c ft_itoa_base_uintmax.c \
 ft_putstr_color_fd.c ft_sort_tfile.c ft_freestrarr.c ft_get_next_word.c\
@@ -36,14 +36,6 @@ FT_PRINTF  = 	get_val.c \
 				get_type.c \
 				tools_tparam.c
 
-GET_INPT	=	handle_input.c \
-				setup.c \
-				get_input.c \
-				history.c \
-				curs_move.c \
-				input_tools.c \
-				print_line.c
-
 TENVV 		=	init_tenvv.c \
 				ft_get_set_envv.c \
 				tenvv_tools.c \
@@ -60,11 +52,9 @@ TENVV_FO	= ./srcs/tenvv/
 FT_PRINTF_FO = ./srcs/ft_printf/
 OBJ_FOLDER 	= ./bin/
 SRC			= $(addprefix $(FILE_FOLDER), $(FILES)) \
-			$(addprefix $(GET_INPT_FO), $(GET_INPT)) \
 			$(addprefix $(TENVV_FO), $(TENVV)) \
 			$(addprefix $(FT_PRINTF_FO), $(FT_PRINTF)) 
 OBJ			= $(addprefix $(OBJ_FOLDER), $(FILES:.c=.o)) \
-			$(addprefix $(OBJ_FOLDER), $(GET_INPT:.c=.o)) \
 			$(addprefix $(OBJ_FOLDER), $(TENVV:.c=.o)) \
 			$(addprefix $(OBJ_FOLDER), $(FT_PRINTF:.c=.o))
 
@@ -93,10 +83,6 @@ srcs:
 bin/%.o: $(FILE_FOLDER)%.c 
 	@gcc $(FLAG) -I includes -c $< -o $@
 	@printf "$(NO_COLOR)  $(DONE) $(COLOR)$<$(NO_COLOR)                               \r"
-
-bin/%.o: $(GET_INPT_FO)%.c
-	@gcc $(FLAG) -I includes -c $< -o $@
-	@printf "get_input $(DONE) $(COLOR)$<$(NO_COLOR)                               \r"
 
 bin/%.o: $(TENVV_FO)%.c
 	@gcc $(FLAG) -I includes -c $< -o $@		

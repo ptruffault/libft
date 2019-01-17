@@ -27,7 +27,6 @@
 # include <sys/xattr.h>
 # include <stdint.h>
 # include "tenvv.h"
-# include "get_input.h"
 # define BUFF_SIZE 256
 
 # define BLEUCLAIR 	"\033[01;34m"
