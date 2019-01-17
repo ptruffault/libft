@@ -40,13 +40,13 @@
 # define MAGENTA 	"\033[1;35m"
 # define JAUNE		"\033[1;39m"
 
-struct	s_list
-{
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-};
-typedef	struct s_list	t_list;
+
+typedef enum	e_boolen {
+	FALSE = 0,
+	TRUE = 1
+}				t_bool;
+
+
 typedef struct s_file	t_file;
 struct	s_file
 {
