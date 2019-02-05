@@ -6,13 +6,13 @@
 /*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/13 15:43:04 by ptruffau          #+#    #+#             */
-/*   Updated: 2018/10/13 15:43:06 by ptruffau         ###   ########.fr       */
+/*   Updated: 2019/02/05 13:09:43 by adi-rosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char *ft_get_line_in_file(char *path, int n)
+char	*ft_get_line_in_file(char *path, int n)
 {
 	char	**arr;
 	char	*ret;

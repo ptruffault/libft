@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_set_envv.c                                   :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: adi-rosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/04 16:44:00 by ptruffau          #+#    #+#             */
-/*   Updated: 2018/12/04 16:44:01 by ptruffau         ###   ########.fr       */
+/*   Created: 2019/02/05 13:35:15 by adi-rosa          #+#    #+#             */
+/*   Updated: 2019/02/05 13:43:56 by adi-rosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/tenvv.h"
 
-t_envv *ft_get_set_envv(t_envv *t)
+t_envv	*ft_get_set_envv(t_envv *t)
 {
-	static t_envv *e = NULL;
+	static t_envv	*e = NULL;
 
 	if (t != NULL)
 		e = t;

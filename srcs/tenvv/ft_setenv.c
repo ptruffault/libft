@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_setenv.c                                        :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: adi-rosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 14:10:52 by ptruffau          #+#    #+#             */
-/*   Updated: 2018/07/04 14:10:54 by ptruffau         ###   ########.fr       */
+/*   Created: 2019/02/05 13:41:36 by adi-rosa          #+#    #+#             */
+/*   Updated: 2019/02/05 13:45:06 by adi-rosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <tenvv.h>
 
-t_envv		*ft_new_envv(t_envv *envv, char *name, char *value)
+t_envv	*ft_new_envv(t_envv *envv, char *name, char *value)
 {
-	t_envv *new;
-	t_envv *tmp;
+	t_envv	*new;
+	t_envv	*tmp;
 
 	if ((tmp = get_tenvv(envv, name)))
 		return (ft_changetenvv_val(envv, name, value));
@@ -30,11 +30,11 @@ t_envv		*ft_new_envv(t_envv *envv, char *name, char *value)
 	return (new);
 }
 
-t_envv 				*ft_setenv(t_envv *envv, char **t)
+t_envv	*ft_setenv(t_envv *envv, char **t)
 {
-	char *name;
-	char *val;
-	int i;
+	char	*name;
+	char	*val;
+	int		i;
 
 	i = (ft_strequ(t[0], "setenv") ? 1 : 0);
 	while (t[i])

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tenvv_to_tab.c                                     :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: adi-rosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 14:11:41 by ptruffau          #+#    #+#             */
-/*   Updated: 2018/07/04 14:11:42 by ptruffau         ###   ########.fr       */
+/*   Created: 2019/02/05 13:42:31 by adi-rosa          #+#    #+#             */
+/*   Updated: 2019/02/05 13:45:47 by adi-rosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static char	*get_equal(char *name, char *value)
 {
-	char *tmp;
-	char *ret;
+	char	*tmp;
+	char	*ret;
 
 	if (!(tmp = ft_stradd_char(ft_strdup(name), '=')))
 		return (NULL);
@@ -37,7 +37,7 @@ static int	envv_len(t_envv *envv)
 	return (i);
 }
 
-char	**tenvv_to_tab(t_envv *envv)
+char		**tenvv_to_tab(t_envv *envv)
 {
 	char	**t;
 	int		i;
@@ -50,7 +50,7 @@ char	**tenvv_to_tab(t_envv *envv)
 		if ((t[i] = get_equal(envv->name, envv->value)))
 			i++;
 		envv = envv->next;
-	} 
+	}
 	t[i] = NULL;
 	return (t);
 }

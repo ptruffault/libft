@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_tenvv.c                                       :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: adi-rosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 14:11:52 by ptruffau          #+#    #+#             */
-/*   Updated: 2018/07/04 14:11:54 by ptruffau         ###   ########.fr       */
+/*   Created: 2019/02/05 13:39:13 by adi-rosa          #+#    #+#             */
+/*   Updated: 2019/02/05 13:44:32 by adi-rosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*get_name(char *equal)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (equal[i] && equal[i] != '=')
@@ -26,8 +26,8 @@ char	*get_name(char *equal)
 
 char	*get_value(char *equal)
 {
-	char *ptr;
-	char *value;
+	char	*ptr;
+	char	*value;
 
 	if (!(ptr = ft_strchr(equal, '=') + 1)
 		|| !(value = ft_strdup(ptr)))
@@ -39,7 +39,7 @@ t_envv	*init_tenvv(char **tab_envv)
 {
 	int		i;
 	int		len;
-	t_envv *envv;
+	t_envv	*envv;
 	t_envv	*tmp;
 
 	i = 0;
