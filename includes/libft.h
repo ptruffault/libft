@@ -66,6 +66,7 @@ struct	s_file
 };
 
 int		ft_printf(char *format, ...);
+char	*ft_strchr_end(const char *src, char c);
 int		ft_close(int fd);
 int		ft_count_word(char *s);
 char	**ft_strarrjoin(char **src, char **to_add);

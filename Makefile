@@ -17,7 +17,7 @@ ft_strclr.c ft_strequ.c ft_striter.c ft_search_tfile.c ft_get_prev_path.c \
 ft_striteri.c ft_strjoin.c ft_strmap.c ft_strmapi.c ft_strpull.c ft_open.c\
 ft_strnequ.c ft_strnew.c ft_strsplit.c ft_strsub.c ft_get_line_in_file.c\
 ft_strtrim.c ft_strsplit_word.c ft_isspace.c ft_count_word.c ft_delchar_n.c \
-ft_sqrt.c ft_strarrlen.c ft_strarrjoin.c ft_isempty.c\
+ft_sqrt.c ft_strarrlen.c ft_strarrjoin.c ft_isempty.c ft_strchr_end.c\
 ft_realloc.c  ft_new_path.c ft_get_tfile.c ft_error.c ft_strndup.c\
 ft_get_file_inf.c  ft_free_tfile.c ft_new_tfile.c ft_itoa_base_uintmax.c \
 ft_putstr_color_fd.c ft_sort_tfile.c ft_freestrarr.c ft_get_next_word.c\
