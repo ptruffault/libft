@@ -6,11 +6,12 @@
 /*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 11:16:01 by ptruffau          #+#    #+#             */
-/*   Updated: 2017/12/02 13:09:35 by ptruffau         ###   ########.fr       */
+/*   Updated: 2019/02/08 14:52:37 by adi-rosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
+
 # define LIBFT_H
 # include <fcntl.h>
 # include <string.h>
@@ -39,12 +40,10 @@
 # define MAGENTA 	"\033[1;35m"
 # define JAUNE		"\033[1;39m"
 
-
 typedef enum	e_boolen {
 	FALSE = 0,
 	TRUE = 1
 }				t_bool;
-
 
 typedef struct s_file	t_file;
 struct	s_file
@@ -66,17 +65,16 @@ struct	s_file
 	t_file		*next;
 };
 
-
 int		ft_printf(char *format, ...);
-int 	ft_close(int fd);
+int		ft_close(int fd);
 int		ft_count_word(char *s);
 char	**ft_strarrjoin(char **src, char **to_add);
 char	**ft_strarrjoin_fr(char **src, char **to_add);
 int		ft_match(char *s1, char *s2);
 void	ft_write_in_file(char *path, char *str);
-char 	*ft_get_line_in_file(char *path, int n);
-int 	ft_open(char *path);
-char 	*ft_search_line_in_file(char *path, char *src);
+char	*ft_get_line_in_file(char *path, int n);
+int		ft_open(char *path);
+char	*ft_search_line_in_file(char *path, char *src);
 void	ft_putstrarr_fd(char **t, int fd);
 void	ft_strdel_from_arr(int n, void *arr, size_t width, int len);
 char	*ft_get_next_word(char *str);
@@ -116,7 +114,6 @@ char	**ft_get_txt(int fd);
 char	**ft_strsplit_whitespace(char *s);
 char	*ft_strpull(char *src, char *ptr, int len, char *value);
 char	*ft_strndup(char *src, int len);
-
 char	**ft_strsplit(char const *s, char c);
 void	*ft_memset(void *s, int c, size_t n);
 int		ft_isblank(int c);
@@ -137,7 +134,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strstr(const char *s1, const char *s2);
-char  	*ft_delchar_n(char *s, int n);
+char	*ft_delchar_n(char *s, int n);
 char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -146,9 +143,9 @@ int		ft_ismaj(char c);
 int		ft_ismin(char c);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
-int 	ft_isequal(char *s);
-int 	ft_isempty(char *s);
-int 	ft_isspace(int c);
+int		ft_isequal(char *s);
+int		ft_isempty(char *s);
+int		ft_isspace(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
