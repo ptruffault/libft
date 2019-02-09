@@ -34,7 +34,7 @@ static int	envv_len(t_envv *envv)
 		i++;
 		envv = envv->next;
 	}
-	return (i);
+	return (i + 1);
 }
 
 char		**tenvv_to_tab(t_envv *envv)
@@ -43,7 +43,7 @@ char		**tenvv_to_tab(t_envv *envv)
 	int		i;
 
 	i = 0;
-	if (!(t = (char **)malloc(sizeof(char *) * envv_len(envv))))
+	if (!envv || !(t = (char **)malloc(sizeof(char *) * envv_len(envv))))
 		return (NULL);
 	while (envv)
 	{

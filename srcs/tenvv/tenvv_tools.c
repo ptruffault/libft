@@ -28,6 +28,8 @@ t_envv	*get_tenvv(t_envv *envv, char *name)
 {
 	t_envv *tmp;
 
+	if (!envv)
+		return (NULL);
 	tmp = envv;
 	while (tmp)
 	{
@@ -47,12 +49,9 @@ char	*get_tenvv_val(t_envv *envv, char *name)
 	return (NULL);
 }
 
-void	ft_puttenvv(t_envv *envv)
+void	ft_puttenvv(t_envv *t)
 {
-	t_envv *t;
-
-	t = envv;
-	while (t != NULL && t->name != NULL && t->value != NULL)
+	while (t && t->name)
 	{
 		ft_printf("\033[1;32m\033[04m%s\033[00m = %s\n", t->name, t->value);
 		t = t->next;
