@@ -36,13 +36,6 @@ FT_PRINTF  = 	get_val.c \
 				get_type.c \
 				tools_tparam.c
 
-TENVV 		=	init_tenvv.c \
-				ft_get_set_envv.c \
-				tenvv_tools.c \
-				tenvv_tools_2.c  \
-				tenvv_to_tab.c \
-				ft_setenv.c \
-				ft_unsetenv.c 
 
 FLAG		 = -Wall -Werror -Wextra -g
 
