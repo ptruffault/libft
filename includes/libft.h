@@ -73,8 +73,6 @@ char	*ft_stradd_char(char *str, char c);
 char	*ft_strnew_nchar(char c, int n);
 char	*ft_strjoin_fr(char *s1, char *s2);
 void	ft_putnstr(char *str, int n);
-t_file	*ft_dir_compltion(char *str);
-t_file	*ft_sort_tfile(t_file *file, int (*f)(t_file *file, t_file *tmp));
 char	*ft_new_path(char *s1, char *s2);
 char	*ft_get_prev_path(char *path);
 int		get_next_line(const int fd, char **line);
