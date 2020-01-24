@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_open.c                                          :+:      :+:    :+:   */
+/*   ft_word_lenght.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptruffau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/13 15:28:15 by ptruffau          #+#    #+#             */
-/*   Updated: 2019/02/05 13:27:36 by adi-rosa         ###   ########.fr       */
+/*   Created: 2020/01/21 18:40:50 by ptruffau          #+#    #+#             */
+/*   Updated: 2020/01/21 18:41:01 by ptruffau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
 
-int	ft_open(char *path)
-{
-	int fd;
+#include <libft.h>
 
-	if ((fd = open(path, O_RDONLY)) <= 2)
-	{
-		warning("can't acess", path);
-		perror(NULL);
-	}
-	return (fd);
+int ft_word_lenght(char *str){
+	int i;
+
+	i = 0;
+	while (!ft_isspace(str[i]))
+		i++;
+	return (i);
 }
