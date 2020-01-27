@@ -21,7 +21,7 @@ ft_sqrt.c ft_strarrlen.c ft_strarrjoin.c ft_isempty.c ft_strchr_end.c\
 ft_realloc.c  ft_new_path.c ft_error.c ft_strndup.c ft_itoa_base_uintmax.c \
 ft_putstr_color_fd.c ft_freestrarr.c ft_get_next_word.c ft_str_endwith.c\
 ft_str_startwith.c ft_strsplit_whitespace.c ft_char_to_str.c ft_get_txt.c\
-ft_itoa_base_intmax.c ft_stradd_char.c ft_strjoin_fr.c ft_putnstr.c 
+ft_itoa_base_intmax.c ft_stradd_char.c ft_strjoin_fr.c ft_putnstr.c ft_abs.c
 
 
 FT_PRINTF  = 	get_val.c \
