@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_atoi_hex(char *str, int base)
+int			ft_atoi_hex(char *str)
 {
 	int					z;
 	unsigned int		res;
