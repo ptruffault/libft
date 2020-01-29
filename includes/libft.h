@@ -45,6 +45,7 @@ typedef enum	e_boolen {
 	TRUE = 1
 }				t_bool;
 
+int		ft_atoi_hex(char *str);
 int		ft_abs(int nbr);
 int		ft_printf(char *format, ...);
 int 	ft_word_lenght(char *str);
