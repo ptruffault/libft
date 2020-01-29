@@ -25,6 +25,7 @@ int			ft_atoi_hex(char *str)
 			res = res * 16 + *str - 'a' + 10;
 		else
 			res = res * 16 + *str - 'A' + 10;
+		str++;
 	}
 	return (res);
 }
