@@ -12,7 +12,6 @@
 
 int			ft_atoi_hex(char *str)
 {
-	int					z;
 	unsigned int		res;
 
 	z = 1;
