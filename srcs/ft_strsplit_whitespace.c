@@ -21,7 +21,7 @@ char		**ft_strsplit_whitespace(char *str)
 	i = 0;
 	k = 0;
 	t = NULL;
-	if (!(t = (char **)malloc(sizeof(char *) * ft_count_word(str) + 1)))
+	if (!(t = (char **)malloc(sizeof(char *) * (ft_count_word(str) + 1))))
 	{
 		error("allocation failed", "ft_strsplit_whitespace");
 		return (NULL);
